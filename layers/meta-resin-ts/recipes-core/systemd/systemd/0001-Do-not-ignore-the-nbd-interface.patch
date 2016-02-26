@@ -15,15 +15,15 @@ Signed-off-by: Theodor Gherzan <theodor@resin.io>
  2 files changed, 1 insertion(+), 4 deletions(-)
 
 diff --git a/rules/60-persistent-storage.rules b/rules/60-persistent-storage.rules
-index 25b44a5..7dd90a2 100644
+index 0b14bb4..2f2cebf 100644
 --- a/rules/60-persistent-storage.rules
 +++ b/rules/60-persistent-storage.rules
-@@ -14,7 +14,7 @@ ACTION=="add", SUBSYSTEM=="module", KERNEL=="block", ATTR{parameters/events_dfl_
- SUBSYSTEM!="block", GOTO="persistent_storage_end"
+@@ -6,7 +6,7 @@
+ ACTION=="remove", GOTO="persistent_storage_end"
 
- # skip rules for inappropriate block devices
--KERNEL=="fd*|mtd*|nbd*|gnbd*|btibm*|dm-*|md*|zram*|mmcblk[0-9]*rpmb", GOTO="persistent_storage_end"
-+KERNEL=="fd*|mtd*|gnbd*|btibm*|dm-*|md*|zram*|mmcblk[0-9]*rpmb", GOTO="persistent_storage_end"
+ SUBSYSTEM!="block", GOTO="persistent_storage_end"
+-KERNEL!="loop*|mmcblk*[0-9]|msblk*[0-9]|mspblk*[0-9]|nvme*|sd*|sr*|vd*|xvd*|bcache*|cciss*|dasd*|ubd*", GOTO="persistent_storage_end"
++KERNEL!="nbd*|loop*|mmcblk*[0-9]|msblk*[0-9]|mspblk*[0-9]|nvme*|sd*|sr*|vd*|xvd*|bcache*|cciss*|dasd*|ubd*", GOTO="persistent_storage_end"
 
  # ignore partitions that span the entire disk
  TEST=="whole_disk", GOTO="persistent_storage_end"

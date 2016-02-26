@@ -20,7 +20,7 @@ module.exports =
 		machine: 'ts7700'
 		image: 'resin-image'
 		fstype: 'resin-sdcard'
-		version: 'yocto-fido'
+		version: 'yocto-jethro'
 		deployArtifact: 'resin-image-ts7700.resin-sdcard'
 
 	options: [ networkOptions.group ]
