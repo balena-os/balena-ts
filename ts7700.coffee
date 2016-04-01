@@ -9,6 +9,7 @@ module.exports =
 	state: 'experimental'
 
 	instructions: commonImg.instructions
+
 	gettingStartedLink:
 		windows: 'http://docs.resin.io/#/pages/installing/gettingStarted-TS-7700.md#windows'
 		osx: 'http://docs.resin.io/#/pages/installing/gettingStarted-TS-7700.md#on-mac-and-linux'

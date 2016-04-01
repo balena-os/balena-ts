@@ -5,6 +5,13 @@ TS_EMMC_BOOT_SELECT = 'Disable the SD boot jumper present on your specifc base b
 
 TS_SD_BOOT_SELECT = 'Enable the SD boot jumper present on your specifc base board.'
 
+postProvisioningInstructions = [
+	instructions.BOARD_SHUTDOWN
+	instructions.REMOVE_INSTALL_MEDIA
+	TS_EMMC_BOOT_SELECT
+	instructions.BOARD_REPOWER
+]
+
 module.exports =
 	slug: 'ts4900'
 	aliases: [ 'ts4900' ]
@@ -13,47 +20,14 @@ module.exports =
 	state: 'experimental'
 
 	stateInstructions:
-		postProvisioning: [
-			instructions.BOARD_SHUTDOWN
-			instructions.REMOVE_INSTALL_MEDIA
-			TS_EMMC_BOOT_SELECT
-			instructions.BOARD_REPOWER
-		]
+		postProvisioning: postProvisioningInstructions
 
-	instructions:
-		windows: [
-			instructions.WINDOWS_DISK_IMAGER_SD
-			instructions.EJECT_SD
-			instructions.FLASHER_WARNING
-			TS_SD_BOOT_SELECT
-			instructions.BOARD_SHUTDOWN
-			instructions.REMOVE_INSTALL_MEDIA
-			TS_EMMC_BOOT_SELECT
-			instructions.BOARD_REPOWER
-		]
-		osx: [
-			instructions.OSX_PLUG_SD
-			instructions.OSX_UNMOUNT_SD
-			instructions.DD_BURN_IMAGE_SD
-			instructions.EJECT_SD
-			instructions.FLASHER_WARNING
-			TS_SD_BOOT_SELECT
-			instructions.BOARD_SHUTDOWN
-			instructions.REMOVE_INSTALL_MEDIA
-			TS_EMMC_BOOT_SELECT
-			instructions.BOARD_REPOWER
-		]
-		linux: [
-			instructions.LINUX_DF_SD
-			instructions.DD_BURN_IMAGE_SD
-			instructions.EJECT_SD
-			instructions.FLASHER_WARNING
-			TS_SD_BOOT_SELECT
-			instructions.BOARD_SHUTDOWN
-			instructions.REMOVE_INSTALL_MEDIA
-			TS_EMMC_BOOT_SELECT
-			instructions.BOARD_REPOWER
-		]
+	instructions: [
+		instructions.ETCHER_SD
+		instructions.EJECT_SD
+		instructions.FLASHER_WARNING
+		TS_SD_BOOT_SELECT
+	].concat(postProvisioningInstructions)
 
 	gettingStartedLink:
 		windows: 'http://docs.resin.io/#/pages/installing/gettingStarted-TS-4900.md#windows'
