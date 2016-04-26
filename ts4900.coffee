@@ -42,6 +42,7 @@ module.exports =
 		fstype: 'resin-sdcard'
 		version: 'yocto-jethro'
 		deployArtifact: 'resin-image-flasher-ts4900.resin-sdcard'
+		compressed: true
 
 	options: [ networkOptions.group ]
 
