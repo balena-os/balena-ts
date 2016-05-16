@@ -44,7 +44,25 @@ module.exports =
 		deployArtifact: 'resin-image-flasher-ts4900.resin-sdcard'
 		compressed: true
 
-	options: [ networkOptions.group ]
+	options: [
+		{
+			isGroup: true
+			name: 'board'
+			message: 'Board Options'
+			options: [
+				{
+					name: 'processorCore'
+					message: 'CPU Cores'
+					type: 'list'
+					choices: [
+						'single',
+						'quad'
+					]
+				}
+			]
+		}
+		networkOptions.group
+	]
 
 	configuration:
 		config:
@@ -52,5 +70,31 @@ module.exports =
 				primary: 4
 				logical: 1
 			path: '/config.json'
+
+		operations: [
+			command: 'copy'
+			from:
+				partition:
+					primary: 1
+				path: '/u-boot-ts4900.imx-single'
+			to:
+				partition:
+					primary: 1
+				path: '/u-boot.imx'
+			when:
+				processorCore: 'single'
+		,
+			command: 'copy'
+			from:
+				partition:
+					primary: 1
+				path: '/u-boot-ts4900.imx-quad'
+			to:
+				partition:
+					primary: 1
+				path: '/u-boot.imx'
+			when:
+				processorCore: 'quad'
+		]
 
 	initialization: commonImg.initialization
