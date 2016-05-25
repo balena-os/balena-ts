@@ -22,6 +22,11 @@ module.exports =
 	stateInstructions:
 		postProvisioning: postProvisioningInstructions
 
+	imageDownloadAlerts: [{
+		type: "warning",
+		message: "Please make sure to select the correct number of CPU Cores for your device. Failing to do so can brick your device."
+	}]
+
 	instructions: [
 		instructions.ETCHER_SD
 		instructions.EJECT_SD
