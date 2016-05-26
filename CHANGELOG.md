@@ -1,6 +1,8 @@
 Change log
 -----------
 
+# v1.1.4 - 2016-05-16
+
 * Add warning for WiFi antenna in the download window [Theodor]
 * Add warning for ts4900 single and quad core download options [Florin]
 * Update meta-resin submodule to 1.1.4-ts branch, needed for image maker to cope with packaging a smaller flash-boot partition [Florin]
