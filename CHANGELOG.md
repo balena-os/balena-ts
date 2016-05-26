@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Configure builds with RM_OLD_IMAGE [Theodor]
+
 # v1.1.4 - 2016-05-16
 
 * Add warning for WiFi antenna in the download window [Theodor]
