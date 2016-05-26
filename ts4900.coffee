@@ -23,8 +23,8 @@ module.exports =
 		postProvisioning: postProvisioningInstructions
 
 	imageDownloadAlerts: [{
-		type: "warning",
-		message: "Please make sure to select the correct number of CPU Cores for your device. Failing to do so can brick your device."
+		type: "danger",
+		message: "Please make sure to select the correct number of CPU Cores for your device. Failing to do so will brick your device."
 	}]
 
 	instructions: [
