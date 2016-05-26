@@ -25,6 +25,10 @@ module.exports =
 	imageDownloadAlerts: [{
 		type: "danger",
 		message: "Please make sure to select the correct number of CPU Cores for your device. Failing to do so will brick your device."
+	}, {
+		type: "warning",
+		message: "In order to have usable WiFi connectivity, make sure you have attached a WiFi antenna to your WiFi module."
+
 	}]
 
 	instructions: [
