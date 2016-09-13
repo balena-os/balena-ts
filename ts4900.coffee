@@ -1,4 +1,4 @@
-deviceTypesCommon = require 'resin-device-types/common'
+deviceTypesCommon = require '@resin.io/device-types/common'
 { networkOptions, commonImg, instructions } = deviceTypesCommon
 
 TS_EMMC_BOOT_SELECT = 'Disable the SD boot jumper present on your specifc base board.'
