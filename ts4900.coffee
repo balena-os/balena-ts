@@ -13,6 +13,7 @@ postProvisioningInstructions = [
 ]
 
 module.exports =
+	version: 1
 	slug: 'ts4900'
 	aliases: [ 'ts4900' ]
 	name: 'Technologic TS-4900'
@@ -76,8 +77,7 @@ module.exports =
 	configuration:
 		config:
 			partition:
-				primary: 4
-				logical: 1
+				primary: 1
 			path: '/config.json'
 
 		operations: [
