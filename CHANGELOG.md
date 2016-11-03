@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Update meta-resin to v1.19 [Florin]
+
 # v1.16.1 - 2016-10-20
 
 * Integrate SPI delay u-boot patch for TS4900 [Michal]
