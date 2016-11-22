@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Patch the ts4900 dts as per a customer requirement [Florin]
+
 # v2.0.0-beta.3 - 2016-11-07
 
 * Update meta-resin to v2.0-beta.3 [Andrei]
