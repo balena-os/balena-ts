@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Upgrade kernel to version 4.1.15 [Florin]
 * Patch the ts4900 dts as per a customer requirement [Florin]
 
 # v1.20.0 - 2016-11-15
