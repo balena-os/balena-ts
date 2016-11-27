@@ -1,6 +1,8 @@
 Change log
 -----------
 
+# v1.21.0 - 2016-11-27
+
 * Update meta-resin to v1.21 [Florin]
 * Upgrade kernel to version 4.1.15 [Florin]
 * Patch the ts4900 dts as per a customer requirement [Florin]
