@@ -1,6 +1,8 @@
 Change log
 -----------
 
+# v1.24.1 - 2016-12-08
+
 * Disable the hardware watchdog for the ts4900 [Florin]
 
 # v1.24.0 - 2016-12-05
