@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Disable the hardware watchdog for the ts4900 [Florin]
+
 # v1.24.0 - 2016-12-05
 
 * Update meta-resin to v1.24 [Florin]
