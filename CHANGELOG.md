@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Update resin-yocto-scripts to HEAD of the 1.X branch [Florin]
+
 # v1.24.1 - 2016-12-08
 
 * Disable the hardware watchdog for the ts4900 [Florin]
