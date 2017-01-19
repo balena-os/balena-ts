@@ -1,6 +1,8 @@
 Change log
 -----------
 
+# v2.0.1-beta.7 - 2017-01-19
+
 * Update resin-yocto-scripts to HEAD of the master branch [Florin]
 * Disable the hardware watchdog for the ts4900 [Florin]
 
