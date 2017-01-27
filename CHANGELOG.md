@@ -1,6 +1,10 @@
 Change log
 -----------
 
+# v2.0.0-beta.8 - 2017-01-27
+
+* Update meta-resin to v2.0-beta.8 [Andrei]
+
 # v2.0.1-beta.7 - 2017-01-19
 
 * Update resin-yocto-scripts to HEAD of the master branch [Florin]
