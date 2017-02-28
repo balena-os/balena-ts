@@ -10,20 +10,20 @@ RESIN_IMAGE_BOOTLOADER_ts4900 = ""
 #
 # ts7700
 #
-IMAGE_FSTYPES_append_ts7700 = " resin-sdcard"
+IMAGE_FSTYPES_append_ts7700 = " resinos-img"
 
-IMAGE_CMD_resin-sdcard_append_ts7700 () {
-    bbnote "TS7700 specific resin-sdcard configuration"
+IMAGE_CMD_resinos-img_append_ts7700 () {
+    bbnote "TS7700 specific resinos-img configuration"
 
     # Burn the second stage bootloader
-    dd if=${DEPLOY_DIR_IMAGE}/bootstrap-code.img of=${RESIN_SDIMG} conv=notrunc ; sync ; sync
+    dd if=${DEPLOY_DIR_IMAGE}/bootstrap-code.img of=${RESIN_RAW_IMG} conv=notrunc ; sync ; sync
 
     # Prepare raw partition for kernel
-    dd if=/dev/zero of=${RESIN_SDIMG} seek=1 count=$(expr ${RESIN_BOOT_SPACE_ALIGNED} \/ ${IMAGE_ROOTFS_ALIGNMENT}) conv=notrunc bs=$(expr ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) ; sync ; sync
+    dd if=/dev/zero of=${RESIN_RAW_IMG} seek=1 count=$(expr ${RESIN_BOOT_SIZE_ALIGNED} \/ ${RESIN_IMAGE_ALIGNMENT}) conv=notrunc bs=$(expr ${RESIN_IMAGE_ALIGNMENT} \* 1024) ; sync ; sync
 
     # Burn kernel
-    dd if=${DEPLOY_DIR_IMAGE}/zImage of=${RESIN_SDIMG} seek=1 conv=notrunc bs=$(expr ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) ; sync ; sync
+    dd if=${DEPLOY_DIR_IMAGE}/zImage of=${RESIN_RAW_IMG} seek=1 conv=notrunc bs=$(expr ${RESIN_IMAGE_ALIGNMENT} \* 1024) ; sync ; sync
 
     # Set non-fs part-type for the boot partition (this is required by the bootloader)
-    sfdisk -c  ${RESIN_SDIMG} 1 da
+    sfdisk -c  ${RESIN_RAW_IMG} 1 da
 }
