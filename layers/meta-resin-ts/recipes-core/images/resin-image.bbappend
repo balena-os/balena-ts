@@ -10,10 +10,10 @@ RESIN_IMAGE_BOOTLOADER_ts4900 = ""
 #
 # ts7700
 #
-IMAGE_FSTYPES_append_ts7700 = " resin-sdcard"
+IMAGE_FSTYPES_append_ts7700 = " resinos-img"
 
-IMAGE_CMD_resin-sdcard_append_ts7700 () {
-    bbnote "TS7700 specific resin-sdcard configuration"
+IMAGE_CMD_resinos-img_append_ts7700 () {
+    bbnote "TS7700 specific resinos-img configuration"
 
     # Burn the second stage bootloader
     dd if=${DEPLOY_DIR_IMAGE}/bootstrap-code.img of=${RESIN_SDIMG} conv=notrunc ; sync ; sync
