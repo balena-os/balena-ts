@@ -22,7 +22,7 @@ module.exports =
 		machine: 'ts7700'
 		image: 'resin-image'
 		fstype: 'resinos-img'
-		version: 'yocto-jethro'
+		version: 'yocto-krogoth'
 		deployArtifact: 'resin-image-ts7700.resinos-img'
 		compressed: true
 
