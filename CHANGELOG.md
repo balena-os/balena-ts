@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Switch ts4900 to using Poky Krogoth [Florin]
+
 # v2.0.0-beta13.rev1 - 2017-02-27
 
 * Bump resin-yocto-scripts to current HEAD [Andrei]
