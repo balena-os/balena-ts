@@ -1,6 +1,5 @@
 # Supported machines
 #MACHINE ?= "ts4900"
-#MACHINE ?= "ts7700"
 
 # More info meta-resin/README.md
 #RESIN_CONNECTABLE ?= "1"
