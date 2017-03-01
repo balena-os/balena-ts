@@ -1,6 +1,8 @@
 Change log
 -----------
 
+# v2.0.0-beta13.rev2 - 2017-03-01
+
 * Remove support for the ts7700 [Florin]
 * Switch ts4900 to using Poky Krogoth [Florin]
 
