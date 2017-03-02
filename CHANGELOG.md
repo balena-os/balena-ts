@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Implement resin-uboot specification 2.0 for ts4900 [Florin]
+
 # v2.0.0-beta13.rev2 - 2017-03-01
 
 * Remove support for the ts7700 [Florin]
