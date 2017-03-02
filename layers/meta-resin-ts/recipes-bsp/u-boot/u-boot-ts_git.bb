@@ -15,6 +15,7 @@ SRC_URI = " \
     file://0001-We-do-not-want-flash-env.-We-only-want-internal-env.patch \
     file://0002-Replace-default-emmc-bootargs.patch \
     file://0003-longer-delays.patch \
+    file://0004-Replace-default-sd-bootargs.patch \
     "
 
 S = "${WORKDIR}/git"
