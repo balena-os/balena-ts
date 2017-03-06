@@ -1,0 +1,57 @@
+ts4900 machine specific integration of resin environment configuration.
+
+Upstream-Status: Inappropriate [configuration]
+
+Signed-off-by: Florin Sarbu <florin@resin.io>
+
+Index: git/include/configs/ts4900.h
+===================================================================
+--- git.orig/include/configs/ts4900.h
++++ git/include/configs/ts4900.h
+@@ -166,6 +166,8 @@
+ 
+ /* Miscellaneous commands */
+ #define CONFIG_CMD_SETEXPR
++#define CONFIG_PARTITION_UUIDS
++#define CONFIG_CMD_PART
+ 
+ /* allow to overwrite serial and ethaddr */
+ #define CONFIG_ENV_OVERWRITE
+@@ -219,7 +221,7 @@
+ 		"load mmc 0:1 ${loadaddr} /boot/ts4900-fpga.bin; " \
+ 		"ice40 ${loadaddr} ${filesize}; " \
+ 		"load mmc 0:1 ${loadaddr} ${uimage}; " \
+-		"setenv bootargs root=/dev/mmcblk1p1 rootwait rw console=ttymxc0,115200 enable_wait_mode=off; " \
++		"setenv bootargs ${resin_kernel_root} rootwait rw console=ttymxc0,115200 enable_wait_mode=off; " \
+ 		"bootm ${loadaddr} - ${fdtaddr}; \0" \
+ 	"emmcboot=echo Booting from the eMMC ...; " \
+ 		"bbdetect; " \
+@@ -236,7 +238,7 @@
+ 		"load mmc 1:1 ${loadaddr} /boot/ts4900-fpga.bin; " \
+ 		"ice40 ${loadaddr} ${filesize}; " \
+ 		"load mmc 1:1 ${loadaddr} ${uimage}; " \
+-		"setenv bootargs root=/dev/mmcblk2p2 rootwait rw console=ttymxc0,115200 enable_wait_mode=off; " \
++		"setenv bootargs ${resin_kernel_root} rootwait rw console=ttymxc0,115200 enable_wait_mode=off; " \
+ 		"bootm ${loadaddr} - ${fdtaddr}; \0" \
+ 	"usbprod=usb start; " \
+ 		"if usb storage; " \
+@@ -267,9 +269,17 @@
+ 
+ #define CONFIG_BOOTCOMMAND \
+ 	"run usbprod; " \
++	"setenv resin_kernel_load_addr ${loadaddr}; "\
++	"run resin_set_kernel_root; "\
+ 	"if test ${jpsdboot} = 'on' ; " \
+-		"then run sdboot; " \
+-		"else run emmcboot; " \
++		"then " \
++			"if test ${resin_mmcdev} = '0' ; " \
++				"then run sdboot; " \
++				"else if test ${resin_mmcdev} = '1' ; " \
++					"then run emmcboot; " \
++				"fi;" \
++			"fi;" \
++		"else run emmcboot; " \
+ 	"fi;"
+ 
+ /* Miscellaneous configurable options */
