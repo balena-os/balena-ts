@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Make SD card boot use root=/dev/mmcblk1p2 until a resin-uboot bootloader is flashed [Florin]
 * Implement resin-uboot specification 2.0 for ts4900 [Florin]
 
 # v2.0.0-beta13.rev2 - 2017-03-01
