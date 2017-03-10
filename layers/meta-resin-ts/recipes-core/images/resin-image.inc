@@ -9,7 +9,7 @@ RDEPENDS_${PN}_append_ts4900 = " ts4900-fpga"
 
 # Customize resinos-img
 RESIN_BOOT_PARTITION_FILES_ts4900 = " \
-    ${KERNEL_IMAGETYPE}-${MACHINE}.bin:/boot/${KERNEL_IMAGETYPE} \
+    ${KERNEL_IMAGETYPE}${KERNEL_INITRAMFS}-${MACHINE}.bin:/boot/${KERNEL_IMAGETYPE} \
     uImage-imx6dl-ts4900.dtb:/boot/imx6dl-ts4900.dtb \
     uImage-imx6q-ts4900.dtb:/boot/imx6q-ts4900.dtb \
     uImage-imx6q-ts4900-2.dtb:/boot/imx6q-ts4900-2.dtb \

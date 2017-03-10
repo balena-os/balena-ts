@@ -45,9 +45,9 @@ Index: git/include/configs/ts4900.h
 -		"then run sdboot; " \
 -		"else run emmcboot; " \
 +		"then " \
-+			"if test ${resin_mmcdev} = '0' ; " \
++			"if test -n \"${resin_flasher_mmcdev}\" ; " \
 +				"then run sdboot; " \
-+				"else if test ${resin_mmcdev} = '1' ; " \
++				"else if test -n \"${resin_image_mmcdev}\" ; " \
 +					"then run emmcboot; " \
 +				"fi;" \
 +			"fi;" \
