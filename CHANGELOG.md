@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Re-add the boot.ub boot script so that we can do SD boot on boards that are provisioned with pre-2.0.0-rcX images [Florin]
+
 # v2.0.0-rc4.rev1 - 2017-03-17
 
 * Update the meta-resin submodule to version v2.0.0-rc4 [Florin]
