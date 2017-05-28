@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Update the resin-yocto-scripts submodule to master HEAD [Florin]
 * Update the resin-yocto-scripts submodule [Florin]
 * Update resin-yocto-scripts to master [Will]
 
