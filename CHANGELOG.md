@@ -1,6 +1,14 @@
 Change log
 -----------
 
+# v2.0.4+rev2 - 2017-05-28
+
+* Adapt the uboot integration patch to the changes done in meta-resin to the resin-uboot implementation [Florin]
+
+# v2.0.4+rev1 - 2017-05-28
+
+* Update the meta-resin submodule to version v2.0.4 [Florin]
+* Update the resin-yocto-scripts submodule to master HEAD [Florin]
 * Update the resin-yocto-scripts submodule [Florin]
 * Update resin-yocto-scripts to master [Will]
 
