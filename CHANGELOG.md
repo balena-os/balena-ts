@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Update the resin-yocto-scripts submodule to master HEAD [Florin]
+
 # v2.0.4+rev2 - 2017-05-28
 
 * Adapt the uboot integration patch to the changes done in meta-resin to the resin-uboot implementation [Florin]
