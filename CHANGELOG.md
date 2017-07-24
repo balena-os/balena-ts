@@ -1,6 +1,9 @@
 Change log
 -----------
 
+# v2.1.0+rev1 - 2017-07-24
+
+* Update the meta-resin submodule to version v2.1.0 [Florin]
 * Define a new attribute to denote the yocto flasher image [Florin]
 * Update the resin-yocto-scripts submodule to master HEAD [Florin]
 
