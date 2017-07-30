@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Revert Define a new attribute to denote the yocto flasher image [Florin]
+
 # v2.1.0+rev1 - 2017-07-24
 
 * Update the meta-resin submodule to version v2.1.0 [Florin]
