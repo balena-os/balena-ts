@@ -1,6 +1,9 @@
 # Supported machines
 #MACHINE ?= "ts4900"
 
+# We use the overlayfs docker storage driver on the Nvidia Jetson tx2
+DOCKER_STORAGE = "overlay2"
+
 # More info meta-resin/README.md
 #RESIN_CONNECTABLE ?= "1"
 #RESIN_CONNECTABLE_ENABLE_SERVICES ?= "0"
