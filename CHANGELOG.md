@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Use u-boot branch v2014.10 and add LCD over I2C-1 functionality patch [Florin]
+
 # v2.4.1+rev1
 ## (2017-08-25)
 
