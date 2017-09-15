@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Promote ts4900 to released [Florin]
 * Use u-boot branch v2014.10 and add LCD over I2C-1 functionality patch [Florin]
 
 # v2.4.1+rev1
