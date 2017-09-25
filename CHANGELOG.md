@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Add meta-rust layer [Will]
+
 * Promote ts4900 to released [Florin]
 * Use u-boot branch v2014.10 and add LCD over I2C-1 functionality patch [Florin]
 
