@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Update the resin-yocto-scripts submodule to master HEAD [Florin]
 * Include meta-rust layer [Will]
 * Add meta-rust layer [Will]
 * Promote ts4900 to released [Florin]
