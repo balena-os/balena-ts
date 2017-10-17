@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Update poky to latest krogoth branch [Will]
 * Update meta-rust to morty [Will]
 
 # v2.6.1+rev1
