@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Update the resin-yocto-scripts submodule to e3a06d48a2f8b7e32d3047c33066a5b896e6ae93 [Florin]
 * Update the getting started links [Zach]
 * Update poky to latest krogoth branch [Will]
 * Update meta-rust to morty [Will]
