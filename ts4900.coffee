@@ -40,9 +40,9 @@ module.exports =
 	].concat(postProvisioningInstructions)
 
 	gettingStartedLink:
-		windows: 'http://docs.resin.io/#/pages/installing/gettingStarted-TS-4900.md#windows'
-		osx: 'http://docs.resin.io/#/pages/installing/gettingStarted-TS-4900.md#on-mac-and-linux'
-		linux: 'http://docs.resin.io/#/pages/installing/gettingStarted-TS-4900.md#on-mac-and-linux'
+		windows: 'https://docs.resin.io/installing/gettingStarted-TS4900/#adding-your-first-device'
+		osx: 'https://docs.resin.io/installing/gettingStarted-TS4900/#adding-your-first-device'
+		linux: 'https://docs.resin.io/installing/gettingStarted-TS4900/#adding-your-first-device'
 
 	supportsBlink: false
 
