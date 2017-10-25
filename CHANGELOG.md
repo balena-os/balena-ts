@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Update the getting started links [Zach]
 * Update poky to latest krogoth branch [Will]
 * Update meta-rust to morty [Will]
 
