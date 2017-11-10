@@ -1,6 +1,8 @@
 Change log
 -----------
 
+* Fix overlayfs copy up opaqueness issue [Florin]
+
 # v2.7.5+rev2
 ## (2017-11-03)
 
