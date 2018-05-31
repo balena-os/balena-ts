@@ -2,7 +2,7 @@
 #MACHINE ?= "ts4900"
 
 # We use the overlayfs docker storage driver on the ts4900
-DOCKER_STORAGE = "overlay2"
+BALENA_STORAGE = "overlay2"
 
 # More info meta-resin/README.md
 #RESIN_CONNECTABLE ?= "1"
