@@ -16,7 +16,5 @@ RESIN_BOOT_PARTITION_FILES_ts4900 = " \
     uImage-imx6dl-ts4900-2.dtb:/boot/imx6dl-ts4900-2.dtb \
     uImage-imx6q-ts4900-14.dtb:/boot/imx6q-ts4900-14.dtb \
     uImage-imx6dl-ts4900-14.dtb:/boot/imx6dl-ts4900-14.dtb \
-    uImage-imx6q-ts7970.dtb:/boot/imx6q-ts7970.dtb \
-    uImage-imx6dl-ts7970.dtb:/boot/imx6dl-ts7970.dtb \
     ts4900-fpga.bin:/boot/ts4900-fpga.bin \
     "
