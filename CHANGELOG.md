@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Switch to Yocto Pyro [Florin]
 * Switch from meta-fsl-arm to meta-freescale [Florin]
 
 # v2.12.7+rev1
