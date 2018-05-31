@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Use BALENA_STORAGE instead of the deprecated DOCKER_STORAGE variable in local.conf.sample [Florin]
 * Switch to Yocto Pyro [Florin]
 * Switch from meta-fsl-arm to meta-freescale [Florin]
 
