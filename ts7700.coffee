@@ -7,7 +7,7 @@ module.exports =
 	aliases: [ 'ts7700' ]
 	name: 'Technologic TS-7700'
 	arch: 'armv5e'
-	state: 'experimental'
+	state: 'discontinued'
 
 	instructions: commonImg.instructions
 
