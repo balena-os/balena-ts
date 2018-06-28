@@ -1,6 +1,7 @@
 Change log
 -----------
 
+* Update the resin-yocto-scripts submodule to 6eddcc9a637e00dbca94815f9af0f2b7bf61eb88 (on master branch) [Florin]
 * Switch ts4900 to using Poky Krogoth [Florin]
 
 # v2.0.0-beta13.rev1 - 2017-02-27
