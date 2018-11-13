@@ -50,7 +50,7 @@ module.exports =
 		machine: 'ts4900'
 		image: 'resin-image-flasher'
 		fstype: 'resinos-img'
-		version: 'yocto-pyro'
+		version: 'yocto-sumo'
 		deployArtifact: 'resin-image-flasher-ts4900.resinos-img'
 		compressed: true
 
