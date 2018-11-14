@@ -5,15 +5,14 @@ Subject: [PATCH] Don't use environment as we rely on internal variables
 
 Signed-off-by: Theodor Gherzan <theodor@resin.io>
 ---
- include/configs/ts4900.h | 14 ++------------
- 1 file changed, 2 insertions(+), 12 deletions(-)
+ include/configs/ts4900.h | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
 
 diff --git a/include/configs/ts4900.h b/include/configs/ts4900.h
-index 6a4e113..4d47623 100644
+index 78a4d0a..903bfc4 100644
 --- a/include/configs/ts4900.h
 +++ b/include/configs/ts4900.h
-@@ -311,20 +311,14 @@
- /* FLASH and environment organization */
+@@ -336,19 +336,13 @@
  #define CONFIG_SYS_NO_FLASH
  
  #define CONFIG_ENV_SIZE			(8 * 1024)
@@ -34,7 +33,6 @@ index 6a4e113..4d47623 100644
  
  #define CONFIG_OF_LIBFDT
  #define CONFIG_CMD_BOOTZ
-
 -- 
-2.1.4
+2.7.4
 

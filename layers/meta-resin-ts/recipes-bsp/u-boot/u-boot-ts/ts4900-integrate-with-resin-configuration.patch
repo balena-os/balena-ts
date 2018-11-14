@@ -2,13 +2,16 @@ ts4900 machine specific integration of resin environment configuration.
 
 Upstream-Status: Inappropriate [configuration]
 
-Signed-off-by: Florin Sarbu <florin@resin.io>
+Signed-off-by: Florin Sarbu <florin@balena.io>
+---
+ include/configs/ts4900.h | 16 +++++++++++++---
+ 1 file changed, 13 insertions(+), 3 deletions(-)
 
-Index: git/include/configs/ts4900.h
-===================================================================
---- git.orig/include/configs/ts4900.h
-+++ git/include/configs/ts4900.h
-@@ -166,6 +166,8 @@
+diff --git a/include/configs/ts4900.h b/include/configs/ts4900.h
+index 903bfc4..2f4ba72 100644
+--- a/include/configs/ts4900.h
++++ b/include/configs/ts4900.h
+@@ -172,6 +172,8 @@
  
  /* Miscellaneous commands */
  #define CONFIG_CMD_SETEXPR
@@ -17,25 +20,25 @@ Index: git/include/configs/ts4900.h
  
  /* allow to overwrite serial and ethaddr */
  #define CONFIG_ENV_OVERWRITE
-@@ -219,7 +221,7 @@
+@@ -225,7 +227,7 @@
  		"load mmc 0:1 ${loadaddr} /boot/ts4900-fpga.bin; " \
  		"ice40 ${loadaddr} ${filesize}; " \
  		"load mmc 0:1 ${loadaddr} ${uimage}; " \
--		"setenv bootargs root=/dev/mmcblk1p2 rootwait rw console=ttymxc0,115200 enable_wait_mode=off; " \
+-		"setenv bootargs root=/dev/mmcblk1p1 rootwait rw ${cmdline_append}; " \
 +		"setenv bootargs ${resin_kernel_root} rootwait rw console=ttymxc0,115200 enable_wait_mode=off; " \
  		"bootm ${loadaddr} - ${fdtaddr}; \0" \
  	"emmcboot=echo Booting from the eMMC ...; " \
  		"bbdetect; " \
-@@ -236,7 +238,7 @@
+@@ -242,7 +244,7 @@
  		"load mmc 1:1 ${loadaddr} /boot/ts4900-fpga.bin; " \
  		"ice40 ${loadaddr} ${filesize}; " \
  		"load mmc 1:1 ${loadaddr} ${uimage}; " \
--		"setenv bootargs root=/dev/mmcblk2p2 rootwait rw console=ttymxc0,115200 enable_wait_mode=off; " \
+-		"setenv bootargs root=/dev/mmcblk2p1 rootwait rw ${cmdline_append}; " \
 +		"setenv bootargs ${resin_kernel_root} rootwait rw console=ttymxc0,115200 enable_wait_mode=off; " \
  		"bootm ${loadaddr} - ${fdtaddr}; \0" \
- 	"usbprod=usb start; " \
- 		"if usb storage; " \
-@@ -267,9 +269,17 @@
+ 	"sataboot=echo Booting from SATA ...; " \
+ 		"bbdetect; " \
+@@ -290,8 +292,16 @@
  
  #define CONFIG_BOOTCOMMAND \
  	"run usbprod; " \
@@ -43,7 +46,6 @@ Index: git/include/configs/ts4900.h
 +	"run resin_set_kernel_root; "\
  	"if test ${jpsdboot} = 'on' ; " \
 -		"then run sdboot; " \
--		"else run emmcboot; " \
 +		"then " \
 +			"if test -n \"${resin_flasher_dev_index}\" ; " \
 +				"then run sdboot; " \
@@ -51,7 +53,9 @@ Index: git/include/configs/ts4900.h
 +					"then run emmcboot; " \
 +				"fi;" \
 +			"fi;" \
-+		"else run emmcboot; " \
+ 		"else run emmcboot; " \
  	"fi;"
  
- /* Miscellaneous configurable options */
+-- 
+2.7.4
+
