@@ -19,8 +19,7 @@ SRC_URI = " \
     git://github.com/embeddedarm/u-boot.git;branch=${SRCBRANCH} \
     file://0001-Enable-the-1-I2C-bus-Add-LCD-commands.patch \
     file://0001-We-do-not-want-flash-env.-We-only-want-internal-env.patch \
-    file://0002-Replace-default-emmc-bootargs.patch \
-    file://0004-Replace-default-sd-bootargs.patch \
+    file://0002-Add-support-for-gcc7.patch \
     file://ts4900-integrate-with-resin-configuration.patch \
     "
 
