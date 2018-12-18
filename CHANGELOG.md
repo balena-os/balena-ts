@@ -1,6 +1,12 @@
 Change log
 -----------
 
+# v2.26.0+rev2
+## (2018-12-17)
+
+* Switch from resin-yocto-scripts to balena-yocto-scripts [Florin Sarbu]
+* Switch poky to sumo-19.0.1 version [Florin Sarbu]
+
 # v2.26.0+rev1
 ## (2018-11-08)
 

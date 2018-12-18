@@ -1,4 +1,25 @@
 - commits:
+    - subject: Switch from resin-yocto-scripts to balena-yocto-scripts
+      hash: 9ab575e1b619ec2333ca691f7d09da2540cdb888
+      body: ''
+      footer:
+        Changelog-entry: Switch from resin-yocto-scripts to balena-yocto-scripts
+        changelog-entry: Switch from resin-yocto-scripts to balena-yocto-scripts
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+    - subject: Switch poky to sumo-19.0.1 version
+      hash: 91075be8f82d9f40b19eef871eb8d2d92737420f
+      body: ''
+      footer:
+        Changelog-entry: Switch poky to sumo-19.0.1 version
+        changelog-entry: Switch poky to sumo-19.0.1 version
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+  version: 2.26.0+rev2
+  date: 2018-12-17T21:04:18.634Z
+- commits:
     - subject: Update the meta-resin submodule from v2.25.0 to v2.26.0
       hash: 9b54ca29c10e4c624626fef73424b6c8f57ae500
       body: |
