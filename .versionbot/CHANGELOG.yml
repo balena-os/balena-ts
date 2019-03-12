@@ -1,4 +1,29 @@
 - commits:
+    - subject: Added fno-pic flag for modules
+      hash: 0b8e678cb4825048584fcee8a43c190b2de3a283
+      body: |
+        The kernel modules need to be compiled with the -fno-pic flag
+        to avoid errors of this type:
+
+        [   14.213347] uio: Unknown symbol _GLOBAL_OFFSET_TABLE_ (err 0)
+        [   14.273328] uio: Unknown symbol _GLOBAL_OFFSET_TABLE_ (err 0)
+        [   14.333581] uio: Unknown symbol _GLOBAL_OFFSET_TABLE_ (err 0)
+        .......
+        [   15.893587] xt_owner: Unknown symbol _GLOBAL_OFFSET_TABLE_ (err 0)
+        [   15.937744] xt_owner: Unknown symbol _GLOBAL_OFFSET_TABLE_ (err 0)
+        [   16.043144] xt_owner: Unknown symbol _GLOBAL_OFFSET_TABLE_ (err 0)
+        [   16.087544] xt_owner: Unknown symbol _GLOBAL_OFFSET_TABLE_ (err 0)
+
+        The flags don't apply for OOT modules.
+      footer:
+        Changelog-entry: Added fno-pic flag for modules
+        changelog-entry: Added fno-pic flag for modules
+        Signed-off-by: Vicentiu Galanopulo <vicentiu@balena.io>
+        signed-off-by: Vicentiu Galanopulo <vicentiu@balena.io>
+      author: Vicentiu Galanopulo
+  version: 2.30.0+rev2
+  date: 2019-03-12T06:55:55.261Z
+- commits:
     - subject: Update the meta-resin submodule from v2.29.2 to v2.30.0
       hash: 9b468c7235310d32e222a41f57cdce6a46c872a1
       body: |

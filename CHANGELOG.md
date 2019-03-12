@@ -1,6 +1,11 @@
 Change log
 -----------
 
+# v2.30.0+rev2
+## (2019-03-12)
+
+* Added fno-pic flag for modules [Vicentiu Galanopulo]
+
 # v2.30.0+rev1
 ## (2019-03-05)
 
