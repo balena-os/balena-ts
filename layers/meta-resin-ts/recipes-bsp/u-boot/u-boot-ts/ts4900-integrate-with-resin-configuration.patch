@@ -1,44 +1,63 @@
-ts4900 machine specific integration of resin environment configuration.
+From ed19b24fd1e1949821d0caa20f9040cdea3ce8ee Mon Sep 17 00:00:00 2001
+From: Florin Sarbu <florin@balena.io>
+Date: Thu, 14 Mar 2019 10:54:26 +0100
+Subject: [PATCH] ts4900 machine specific integration of
+resin environment configuration.
 
 Upstream-Status: Inappropriate [configuration]
-
 Signed-off-by: Florin Sarbu <florin@balena.io>
 ---
- include/configs/ts4900.h | 16 +++++++++++++---
- 1 file changed, 13 insertions(+), 3 deletions(-)
+ configs/ts4900-q-2g-1000mhz-c_defconfig |  4 +++-
+ configs/ts4900-s-1g-800mhz-i_defconfig  |  2 ++
+ include/configs/ts4900.h                | 14 +++++++++++---
+ 3 files changed, 16 insertions(+), 4 deletions(-)
 
+diff --git a/configs/ts4900-q-2g-1000mhz-c_defconfig b/configs/ts4900-q-2g-1000mhz-c_defconfig
+index 5e745d8..e3363f3 100644
+--- a/configs/ts4900-q-2g-1000mhz-c_defconfig
++++ b/configs/ts4900-q-2g-1000mhz-c_defconfig
+@@ -62,4 +62,6 @@ CONFIG_BOOTDELAY=1
+ CONFIG_AUTOBOOT_KEYED=y
+ CONFIG_AUTOBOOT_PROMPT="Press ESC twice to abort autoboot in %d second(s)\n"
+ CONFIG_AUTOBOOT_KEYED_CTRLC=y
+-CONFIG_AUTOBOOT_STOP_STR="\x1b\x1b"
+\ No newline at end of file
++CONFIG_AUTOBOOT_STOP_STR="\x1b\x1b"
++CONFIG_PARTITION_UUIDS=y
++CONFIG_CMD_PART=y
+diff --git a/configs/ts4900-s-1g-800mhz-i_defconfig b/configs/ts4900-s-1g-800mhz-i_defconfig
+index 9ea46c1..8cfdf45 100644
+--- a/configs/ts4900-s-1g-800mhz-i_defconfig
++++ b/configs/ts4900-s-1g-800mhz-i_defconfig
+@@ -63,3 +63,5 @@ CONFIG_AUTOBOOT_PROMPT="Press ESC twice to abort autoboot in %d second(s)\n"
+ CONFIG_AUTOBOOT_KEYED_CTRLC=y
+ CONFIG_AUTOBOOT_STOP_STR="\x1b\x1b"
+ CONFIG_OF_LIBFDT=y
++CONFIG_PARTITION_UUIDS=y
++CONFIG_CMD_PART=y
 diff --git a/include/configs/ts4900.h b/include/configs/ts4900.h
-index 903bfc4..2f4ba72 100644
+index c917dd0..8405ebe 100644
 --- a/include/configs/ts4900.h
 +++ b/include/configs/ts4900.h
-@@ -172,6 +172,8 @@
- 
- /* Miscellaneous commands */
- #define CONFIG_CMD_SETEXPR
-+#define CONFIG_PARTITION_UUIDS
-+#define CONFIG_CMD_PART
- 
- /* allow to overwrite serial and ethaddr */
- #define CONFIG_ENV_OVERWRITE
-@@ -225,7 +227,7 @@
+@@ -106,7 +106,7 @@
  		"load mmc 0:1 ${loadaddr} /boot/ts4900-fpga.bin; " \
- 		"ice40 ${loadaddr} ${filesize}; " \
- 		"load mmc 0:1 ${loadaddr} ${uimage}; " \
+ 		"fpga load 0 ${loadaddr} ${filesize}; " \
+ 		"load mmc 0:1 ${loadaddr} /boot/uImage; " \
 -		"setenv bootargs root=/dev/mmcblk1p1 rootwait rw ${cmdline_append}; " \
 +		"setenv bootargs ${resin_kernel_root} rootwait rw console=ttymxc0,115200 enable_wait_mode=off; " \
  		"bootm ${loadaddr} - ${fdtaddr}; \0" \
  	"emmcboot=echo Booting from the eMMC ...; " \
- 		"bbdetect; " \
-@@ -242,7 +244,7 @@
+ 		"if load mmc 1:1 ${loadaddr} /boot/boot.ub; " \
+@@ -122,7 +122,7 @@
  		"load mmc 1:1 ${loadaddr} /boot/ts4900-fpga.bin; " \
- 		"ice40 ${loadaddr} ${filesize}; " \
- 		"load mmc 1:1 ${loadaddr} ${uimage}; " \
+ 		"fpga load 0 ${loadaddr} ${filesize}; " \
+ 		"load mmc 1:1 ${loadaddr} /boot/uImage; " \
 -		"setenv bootargs root=/dev/mmcblk2p1 rootwait rw ${cmdline_append}; " \
 +		"setenv bootargs ${resin_kernel_root} rootwait rw console=ttymxc0,115200 enable_wait_mode=off; " \
  		"bootm ${loadaddr} - ${fdtaddr}; \0" \
  	"sataboot=echo Booting from SATA ...; " \
- 		"bbdetect; " \
-@@ -290,8 +292,16 @@
+ 		"sata init; " \
+@@ -169,8 +169,16 @@
  
  #define CONFIG_BOOTCOMMAND \
  	"run usbprod; " \

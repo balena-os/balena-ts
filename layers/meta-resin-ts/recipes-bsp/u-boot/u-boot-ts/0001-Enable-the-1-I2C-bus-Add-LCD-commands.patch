@@ -9,40 +9,43 @@ with the LCD interface.
 2) Add a command for displaying simple messages on the LCD interface.
 
 Signed-off-by: Kenneth Williams <ken@axilera.com>
+
+Upstream-Status: Inappropriate [configuration]
+Signed-off-by: Florin Sarbu <florin@balena.io>
 ---
  board/technologic/ts4900/Makefile |   2 +-
- board/technologic/ts4900/lcd.c    | 186 ++++++++++++++++++++++++++++++++++++++
+ board/technologic/ts4900/lcd.c    | 185 ++++++++++++++++++++++++++++++++++++++
  board/technologic/ts4900/ts4900.c |  14 +++
- 3 files changed, 201 insertions(+), 1 deletion(-)
+ 3 files changed, 200 insertions(+), 1 deletion(-)
  create mode 100644 board/technologic/ts4900/lcd.c
 
 diff --git a/board/technologic/ts4900/Makefile b/board/technologic/ts4900/Makefile
-index 8bf2ea8..7d4ee0f 100644
+index 923b90f..b69036d 100644
 --- a/board/technologic/ts4900/Makefile
 +++ b/board/technologic/ts4900/Makefile
 @@ -1 +1 @@
--obj-y := ts4900.o led.o post.o
-+obj-y := ts4900.o led.o post.o lcd.o
+-obj-y := ts4900.o
++obj-y := ts4900.o lcd.o
 diff --git a/board/technologic/ts4900/lcd.c b/board/technologic/ts4900/lcd.c
 new file mode 100644
-index 0000000..eaddcb4
+index 0000000..27a96c9
 --- /dev/null
 +++ b/board/technologic/ts4900/lcd.c
-@@ -0,0 +1,186 @@
+@@ -0,0 +1,185 @@
 +/*
 + * Copyright (C) 2017 Axilera
 + *
 + * Author: Kenneth Williams <ken@axilera.com>
 + *
-+ * SPDX-License-Identifier:	GPL-2.0+
++ * SPDX-License-Identifier:    GPL-2.0+
 + */
 +
 +#include <common.h>
 +
 +#include <asm/arch/mx6-pins.h>
 +#include <asm/gpio.h>
-+#include <asm/imx-common/gpio.h>
-+#include <asm/imx-common/iomux-v3.h>
++#include <asm/mach-imx/gpio.h>
++#include <asm/mach-imx/iomux-v3.h>
 +#include <cli.h>
 +#include <command.h>
 +#include <i2c.h>
@@ -57,65 +60,65 @@ index 0000000..eaddcb4
 +
 +static int moveCursor(uint8_t val)
 +{
-+	ulong   addr = 0;
-+	uchar byte = 0x80 | val;
++       ulong   addr = 0;
++       uchar byte = 0x80 | val;
 +
-+	return i2c_write(LCD_ADDR, addr, 1, &byte, 1);
++       return i2c_write(LCD_ADDR, addr, 1, &byte, 1);
 +}
 +
 +static int locateCursor(uint8_t x, uint8_t y)
 +{
-+	uint8_t val = y * 32 + x;
-+	return moveCursor(val);
++       uint8_t val = y * 32 + x;
++       return moveCursor(val);
 +}
 +
 +static int lcd_reset_and_init(void)
 +{
-+	int ret = 0;
-+	int i;
-+	unsigned int bus_num;
-+	ulong   addr = 0;
-+	uchar   init_cmds[] = {
-+	/* Set Orientation */
-+	0x2a,
-+	0x06,
-+	0x28,
-+	/* Display OnOff */
-+	0x0c,
-+	/* Cursor OnOff */
-+	0x0c,
-+	/* Return home */
-+	0x02,
-+	/* Clear Display */
-+	0x28,
-+	0x78,
-+	0x01,
-+	/* Set to 4 line mode */
-+	0x2a,
-+	0x78,
-+	0x09,
-+	0x28};
++       int ret = 0;
++       int i;
++       unsigned int bus_num;
++       ulong   addr = 0;
++       uchar   init_cmds[] = {
++       /* Set Orientation */
++       0x2a,
++       0x06,
++       0x28,
++       /* Display OnOff */
++       0x0c,
++       /* Cursor OnOff */
++       0x0c,
++       /* Return home */
++       0x02,
++       /* Clear Display */
++       0x28,
++       0x78,
++       0x01,
++       /* Set to 4 line mode */
++       0x2a,
++       0x78,
++       0x09,
++       0x28};
 +
 +
-+	gpio_direction_output(LCD_RESET, 0);
-+	gpio_direction_output(LCD_RESET, 1);
++       gpio_direction_output(LCD_RESET, 0);
++       gpio_direction_output(LCD_RESET, 1);
 +
-+	/* Get the current bus num */
-+	/* and then set the bus num of the LCD */
-+	bus_num = i2c_get_bus_num();
-+	i2c_set_bus_num(LCD_BUS_NUM);
++       /* Get the current bus num */
++       /* and then set the bus num of the LCD */
++       bus_num = i2c_get_bus_num();
++       i2c_set_bus_num(LCD_BUS_NUM);
 +
-+	for (i = 0; i < (sizeof(init_cmds)/sizeof(uchar)); i++) {
-+		ret = i2c_write(LCD_ADDR, addr, 1, &(init_cmds[i]), 1);
-+		if (ret)
-+			goto exit;
-+	}
++       for (i = 0; i < (sizeof(init_cmds)/sizeof(uchar)); i++) {
++               ret = i2c_write(LCD_ADDR, addr, 1, &(init_cmds[i]), 1);
++               if (ret)
++                       goto exit;
++       }
 +
-+	lcd_initialized = 1;
++       lcd_initialized = 1;
 +
 +exit:
-+	i2c_set_bus_num(bus_num);
-+	return ret;
++       i2c_set_bus_num(bus_num);
++       return ret;
 +}
 +
 +/**
@@ -129,9 +132,9 @@ index 0000000..eaddcb4
 + * on error.
 + */
 +static int do_lcd_reset(cmd_tbl_t *cmdtp, int flag, int argc,
-+						char * const argv[])
++                                               char * const argv[])
 +{
-+	return lcd_reset_and_init();
++       return lcd_reset_and_init();
 +}
 +
 +/**
@@ -145,81 +148,81 @@ index 0000000..eaddcb4
 + * on error.
 + */
 +static int do_lcd_write(cmd_tbl_t *cmdtp, int flag, int argc,
-+						char * const argv[])
++                                               char * const argv[])
 +{
-+	int ret = 0;
-+	int i;
-+	unsigned int bus_num;
-+	ulong   addr = 0xc0;
-+	uchar   display_string[LCD_WIDTH];
-+	size_t string_len;
-+	int display_len;
-+	uint8_t display_line = 0;
++       int ret = 0;
++       int i;
++       unsigned int bus_num;
++       ulong   addr = 0xc0;
++       uchar   display_string[LCD_WIDTH];
++       size_t string_len;
++       int display_len;
++       uint8_t display_line = 0;
 +
-+	/* Exit early if the args do not look good */
-+	if (argc < 2)
-+		return CMD_RET_USAGE;
++       /* Exit early if the args do not look good */
++       if (argc < 2)
++               return CMD_RET_USAGE;
 +
-+	string_len = strlen(argv[1]);
-+	display_len = (string_len < LCD_WIDTH) ? string_len : LCD_WIDTH;
++       string_len = strlen(argv[1]);
++       display_len = (string_len < LCD_WIDTH) ? string_len : LCD_WIDTH;
 +
-+	/* We always write a string over the full length of the display.
-+	   including spaces past the end of the display_string up to the length
-+	   of the display.  This is a cheap way of insuring
-+	   that we do not have remanent characters on the line */
++       /* We always write a string over the full length of the display.
++          including spaces past the end of the display_string up to the length
++          of the display.  This is a cheap way of insuring
++          that we do not have remanent characters on the line */
 +
-+	memset(display_string, ' ', LCD_WIDTH);
-+	for (i = 0; i < display_len; i++)
-+		display_string[i] = argv[1][i];
++       memset(display_string, ' ', LCD_WIDTH);
++       for (i = 0; i < display_len; i++)
++               display_string[i] = argv[1][i];
 +
-+	/* Now check for a line number */
-+	if (3 == argc) {
-+		display_line = simple_strtoul(argv[2], NULL, 0);
-+		if ((display_line < 1) || (display_line > 4))
-+			return CMD_RET_USAGE;
-+		display_line--;
-+	}
++       /* Now check for a line number */
++       if (3 == argc) {
++               display_line = simple_strtoul(argv[2], NULL, 0);
++               if ((display_line < 1) || (display_line > 4))
++                       return CMD_RET_USAGE;
++               display_line--;
++       }
 +
-+	/* Now that we have handled the args, we will start touching the LCD */
++       /* Now that we have handled the args, we will start touching the LCD */
 +
-+	if (!lcd_initialized) {
-+		ret = lcd_reset_and_init();
-+		if (ret)
-+			return ret;
-+	}
++       if (!lcd_initialized) {
++               ret = lcd_reset_and_init();
++               if (ret)
++                       return ret;
++       }
 +
-+	/* Get the current bus num */
-+	/* and then set the bus num of the LCD */
-+	bus_num = i2c_get_bus_num();
-+	i2c_set_bus_num(LCD_BUS_NUM);
++       /* Get the current bus num */
++       /* and then set the bus num of the LCD */
++       bus_num = i2c_get_bus_num();
 +
-+	locateCursor(0, display_line);
++       locateCursor(0, display_line);
 +
-+	for (i = 0; i < LCD_WIDTH; i++) {
-+		ret = i2c_write(LCD_ADDR, addr, 1, &(display_string[i]), 1);
-+		if (ret)
-+			goto exit;
-+	}
++       for (i = 0; i < LCD_WIDTH; i++) {
++               ret = i2c_write(LCD_ADDR, addr, 1, &(display_string[i]), 1);
++               if (ret)
++                       goto exit;
++       }
 +
 +exit:
-+	i2c_set_bus_num(bus_num);
-+	return ret;
++       i2c_set_bus_num(bus_num);
++       return ret;
 +}
 +
-+U_BOOT_CMD(lcd_reset, 1, 1,	do_lcd_reset,
-+	   "Reset and initialize the LCD screen",
-+	   ""
++U_BOOT_CMD(lcd_reset, 1, 1,    do_lcd_reset,
++          "Reset and initialize the LCD screen",
++          ""
 +);
 +
-+U_BOOT_CMD(lcd_write, 3, 1,	do_lcd_write,
-+	   "Write a character sctring to the LCD screen",
-+	   "STRING [line_num]; line_num=[1,4]"
++U_BOOT_CMD(lcd_write, 3, 1,    do_lcd_write,
++          "Write a character sctring to the LCD screen",
++          "STRING [line_num]; line_num=[1,4]"
 +);
+\ No newline at end of file
 diff --git a/board/technologic/ts4900/ts4900.c b/board/technologic/ts4900/ts4900.c
-index cc5f615..d35463a 100644
+index 2187694..0dd5e9c 100644
 --- a/board/technologic/ts4900/ts4900.c
 +++ b/board/technologic/ts4900/ts4900.c
-@@ -487,6 +487,19 @@ struct i2c_pads_info i2c_pad_info0 = {
+@@ -575,6 +575,19 @@ struct i2c_pads_info i2c_pad_info0 = {
  	}
  };
  
@@ -227,26 +230,26 @@ index cc5f615..d35463a 100644
 +	.scl = {
 +		.i2c_mode  = MX6_PAD_KEY_COL3__I2C2_SCL | MUX_PAD_CTRL(I2C_PAD_CTRL),
 +		.gpio_mode = MX6_PAD_KEY_COL3__GPIO4_IO12 | MUX_PAD_CTRL(I2C_PAD_CTRL),
-+		.gp = TS4900_SCL
++		.gp = IMX_GPIO_NR(3, 21)
 +	},
 +	.sda = {
 +		.i2c_mode = MX6_PAD_KEY_ROW3__I2C2_SDA | MUX_PAD_CTRL(I2C_PAD_CTRL),
 +		.gpio_mode = MX6_PAD_KEY_ROW3__GPIO4_IO13 | MUX_PAD_CTRL(I2C_PAD_CTRL),
-+		.gp = TS4900_SDA
++		.gp = IMX_GPIO_NR(3, 28)
 +	}
 +};
 +
- void setup_usb(void)
+ int board_init(void)
  {
- 	struct iomuxc *const iomuxc_regs = (struct iomuxc *)IOMUXC_BASE_ADDR;
-@@ -549,6 +562,7 @@ int board_init(void)
- 		}
- 	}
+ 	struct iomuxc *iomuxc_regs = (struct iomuxc *)IOMUXC_BASE_ADDR;
+@@ -607,6 +620,7 @@ int board_init(void)
+ 
+ #ifdef CONFIG_SYS_I2C_MXC
  	setup_i2c(0, CONFIG_SYS_I2C_SPEED, 0x7f, &i2c_pad_info0);
 +	setup_i2c(1, CONFIG_SYS_I2C_SPEED, 0x7f, &i2c_pad_info1);
+ #endif
  
- 	#ifdef CONFIG_CMD_SATA
- 	setup_sata();
+ 	/* Pick GPIO1 for USB OTG id */
 -- 
-1.9.1
+2.7.4
 
