@@ -1,4 +1,120 @@
 - commits:
+    - subject: Update meta-resin from v2.30.0 to v2.31.0
+      hash: 51489f97638cc57eac65540bc5bbe13cea526e45
+      body: |
+        Update meta-resin from 2.30.0 to 2.31.0
+      footer:
+        Changelog-entry: Update meta-resin from v2.30.0 to v2.31.0
+        changelog-entry: Update meta-resin from v2.30.0 to v2.31.0
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+      nested:
+        - commits:
+            - subject: 'README:md: Document dnsServers behaviour'
+              hash: ad441b8367d65fe780beef35b20f8d4898bdd339
+              body: >
+                Taken from fa3de6987e3bc82ab6d85038c637f1871e5269cb commit
+                message
+              footer:
+                Change-type: patch
+                change-type: patch
+                Signed-off-by: Alexis Svinartchouk <alexis@balena.io>
+                signed-off-by: Alexis Svinartchouk <alexis@balena.io>
+              author: Alexis Svinartchouk
+            - subject: Update resin-supervisor to v9.9.0
+              hash: 133dde58bde7c4d54ad157374bb3e7062a599e31
+              body: ''
+              footer:
+                Change-type: minor
+                change-type: minor
+                Changelog-entry: Update resin-supervisor to v9.9.0
+                changelog-entry: Update resin-supervisor to v9.9.0
+                Signed-off-by: Cameron Diver <cameron@balena.io>
+                signed-off-by: Cameron Diver <cameron@balena.io>
+              author: Cameron Diver
+            - subject: Cleanup old versions of iwlwifi firmware files in Yocto sumo
+              hash: 5db4441e50b2d47cd7658845c12508b50808d5ee
+              body: >
+                This is done so we can save considerable amount of space on the
+                root
+
+                partition.
+
+
+                See #810
+              footer:
+                Change-type: minor
+                change-type: minor
+                Changelog-entry: Cleanup old versions of iwlwifi firmware files in Yocto sumo
+                changelog-entry: Cleanup old versions of iwlwifi firmware files in Yocto sumo
+                Signed-off-by: Andrei Gherzan <andrei@balena.io>
+                signed-off-by: Andrei Gherzan <andrei@balena.io>
+              author: Andrei Gherzan
+            - subject: Remove polkit dependency in balenaOS
+              hash: 4fddf1a54ac13ed4acd3f65096afccf6a5f7a5ef
+              body: |
+                Fixes #1404
+                See #810
+              footer:
+                Change-type: minor
+                change-type: minor
+                Changelog-entry: Remove polkit dependency in balenaOS
+                changelog-entry: Remove polkit dependency in balenaOS
+                Signed-off-by: Andrei Gherzan <andrei@balena.io>
+                signed-off-by: Andrei Gherzan <andrei@balena.io>
+              author: Andrei Gherzan
+            - subject: Remove support for XFS file system
+              hash: bbf5675973da6adf8fa8f8b671606fbffaef834e
+              body: |
+                This is done so we can save space on the root file system.
+
+                See #810
+              footer:
+                Change-type: minor
+                change-type: minor
+                Changelog-entry: Remove support for XFS file system
+                changelog-entry: Remove support for XFS file system
+                Signed-off-by: Andrei Gherzan <andrei@balena.io>
+                signed-off-by: Andrei Gherzan <andrei@balena.io>
+              author: Andrei Gherzan
+            - subject: 'resin-init: update resin.io reference to balenaOS'
+              hash: 593fcb558b1afe3892560fdd7e0c315c9459466f
+              body: ''
+              footer:
+                Change-type: patch
+                change-type: patch
+                Signed-off-by: Matthew McGinn <matthew@balena.io>
+                signed-off-by: Matthew McGinn <matthew@balena.io>
+              author: Matthew McGinn
+          version: meta-resin-2.31.0
+          date: 2019-03-08T14:31:27.986Z
+    - subject: Update the balena-yocto-scripts submodule to v1.0.3
+      hash: 0e8134fb76adfd58a670e4fb0b791e16d8b4956b
+      body: ''
+      footer:
+        Changelog-entry: Update the balena-yocto-scripts submodule to v1.0.3
+        changelog-entry: Update the balena-yocto-scripts submodule to v1.0.3
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+    - subject: Update u-boot for ts4900 to version v2017.09
+      hash: 9529c9becf59c70c1f5cd2794d316425f3d6b546
+      body: |
+        The switch to Poky Sumo brought in gcc7. With this gcc version
+        u-boot v2014.10 fails to boot on the ts4900 thus rendering the
+        board bricked when provisioning or after a HUP. Therefore we
+        update u-boot to version v2017.09 and also rework all existing
+        patches for this new codebase.
+      footer:
+        Changelog-entry: Update u-boot for ts4900 to version v2017.09
+        changelog-entry: Update u-boot for ts4900 to version v2017.09
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+  version: 2.31.0+rev1
+  date: 2019-03-14T10:37:04.484Z
+- commits:
     - subject: Added fno-pic flag for modules
       hash: 0b8e678cb4825048584fcee8a43c190b2de3a283
       body: |

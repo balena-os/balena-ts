@@ -1,6 +1,28 @@
 Change log
 -----------
 
+# v2.31.0+rev1
+## (2019-03-14)
+
+* Update meta-resin from v2.30.0 to v2.31.0 [Florin Sarbu]
+
+<details>
+<summary> View details </summary>
+
+## meta-resin-2.31.0
+### (2019-03-08)
+
+* README:md: Document dnsServers behaviour [Alexis Svinartchouk]
+* Update resin-supervisor to v9.9.0 [Cameron Diver]
+* Cleanup old versions of iwlwifi firmware files in Yocto sumo [Andrei Gherzan]
+* Remove polkit dependency in balenaOS [Andrei Gherzan]
+* Remove support for XFS file system [Andrei Gherzan]
+* resin-init: update resin.io reference to balenaOS [Matthew McGinn]
+</details>
+
+* Update the balena-yocto-scripts submodule to v1.0.3 [Florin Sarbu]
+* Update u-boot for ts4900 to version v2017.09 [Florin Sarbu]
+
 # v2.30.0+rev2
 ## (2019-03-12)
 
