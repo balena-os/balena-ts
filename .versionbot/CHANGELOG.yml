@@ -1,4 +1,60 @@
 - commits:
+    - subject: Update meta-resin from v2.31.0 to v2.31.3
+      hash: 2f27a1a88700a086a8ddb7b5ecd6632a8ae01fb0
+      body: |
+        Update meta-resin from 2.31.0 to 2.31.3
+      footer:
+        Changelog-entry: Update meta-resin from v2.31.0 to v2.31.3
+        changelog-entry: Update meta-resin from v2.31.0 to v2.31.3
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+      nested:
+        - commits:
+            - subject: Update resin-supervisor to v9.11.2
+              hash: abb864096b5b473893aa7011a685ed8df97a28ee
+              body: ''
+              footer:
+                Change-type: patch
+                change-type: patch
+                Changelog-entry: Update resin-supervisor to v9.11.2
+                changelog-entry: Update resin-supervisor to v9.11.2
+                Signed-off-by: Pablo Carranza Velez <pablo@balena.io>
+                signed-off-by: Pablo Carranza Velez <pablo@balena.io>
+              author: Pablo Carranza Velez
+          version: meta-resin-2.31.3
+          date: 2019-03-20T20:18:02.522Z
+        - commits:
+            - subject: Update resin-supervisor to v9.11.1
+              hash: 0993710382367b865ce81113dbe5566e5814da10
+              body: ''
+              footer:
+                Change-type: patch
+                change-type: patch
+                Changelog-entry: Update resin-supervisor to v9.11.1
+                changelog-entry: Update resin-supervisor to v9.11.1
+                Signed-off-by: Pablo Carranza Velez <pablo@balena.io>
+                signed-off-by: Pablo Carranza Velez <pablo@balena.io>
+              author: Pablo Carranza Velez
+          version: meta-resin-2.31.2
+          date: 2019-03-19T21:33:42.542Z
+        - commits:
+            - subject: Update resin-supervisor to v9.11.0
+              hash: 8b1380bce8a664ef228b054c2b065521acbb48aa
+              body: ''
+              footer:
+                Change-type: patch
+                change-type: patch
+                Changelog-entry: Update resin-supervisor to v9.11.0
+                changelog-entry: Update resin-supervisor to v9.11.0
+                Signed-off-by: Pablo Carranza Velez <pablo@balena.io>
+                signed-off-by: Pablo Carranza Velez <pablo@balena.io>
+              author: Pablo Carranza Velez
+          version: meta-resin-2.31.1
+          date: 2019-03-18T19:21:24.218Z
+  version: 2.31.3+rev1
+  date: 2019-03-22T07:36:03.497Z
+- commits:
     - subject: Update meta-resin from v2.30.0 to v2.31.0
       hash: 51489f97638cc57eac65540bc5bbe13cea526e45
       body: |

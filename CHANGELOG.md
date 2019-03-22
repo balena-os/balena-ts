@@ -1,6 +1,30 @@
 Change log
 -----------
 
+# v2.31.3+rev1
+## (2019-03-22)
+
+* Update meta-resin from v2.31.0 to v2.31.3 [Florin Sarbu]
+
+<details>
+<summary> View details </summary>
+
+## meta-resin-2.31.3
+### (2019-03-20)
+
+* Update resin-supervisor to v9.11.2 [Pablo Carranza Velez]
+
+## meta-resin-2.31.2
+### (2019-03-19)
+
+* Update resin-supervisor to v9.11.1 [Pablo Carranza Velez]
+
+## meta-resin-2.31.1
+### (2019-03-18)
+
+* Update resin-supervisor to v9.11.0 [Pablo Carranza Velez]
+</details>
+
 # v2.31.0+rev1
 ## (2019-03-14)
 
