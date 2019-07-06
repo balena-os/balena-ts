@@ -1,0 +1,33 @@
+#!/bin/sh
+
+#
+# Script used by hostapps updater to flash bootloader onto internal media
+#
+
+set -o errexit
+
+# machine specific data
+# by default we set the bootloader for the quad variant
+bootloader_file="/resin-boot/u-boot-ts4900.imx-quad"
+block_size=1024
+seek_blocks=1
+device="/dev/mtdblock0"
+
+# set bootloader for the single variant if number of processors is 1
+if [ `nproc` == 1 ]; then
+    bootloader_file="/resin-boot/u-boot-ts4900.imx-single"
+fi
+
+# size and md5sum of the bootloader from the update bundle
+update_bootloader_size=$(stat -c%s $bootloader_file)
+update_bootloader_md5sum=$(md5sum $bootloader_file | awk '{print $1}')
+
+# number of bytes to skip when calculating the existing bootloader checksum
+skip_bytes=$((block_size * seek_blocks))
+
+# calculate md5sum of $update_bootloader_size bytes, skipping $skip_bytes from $device
+existing_bootloader_md5sum=$(dd if=$device skip=$skip_bytes bs=1 count="$update_bootloader_size" status=none | md5sum | awk '{print $1}')
+
+if [ ! "$existing_bootloader_md5sum" = "$update_bootloader_md5sum" ]; then
+    dd if=$bootloader_file of=$device conv=fdatasync seek=$seek_blocks bs=$block_size
+fi
