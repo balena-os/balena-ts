@@ -14,7 +14,7 @@ LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://Licenses/gpl-2.0.txt;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 SRCBRANCH = "v2017.09"
-SRCREV = "da1db80757183c8073735579a3f8b7c9d68e264e"
+SRCREV = "6f43d375a8cef2008fbfe7d110a2fb8e6a693971"
 SRC_URI = " \
     git://github.com/embeddedarm/u-boot.git;branch=${SRCBRANCH} \
     file://0001-Enable-the-1-I2C-bus-Add-LCD-commands.patch \
