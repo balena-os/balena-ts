@@ -45,19 +45,19 @@ index 6a6fb74..abdcafb 100644
  };
  
 diff --git a/net/ipv4/proc.c b/net/ipv4/proc.c
-index e1f3b91..473516e 100644
+index e1f3b91..53b4a53 100644
 --- a/net/ipv4/proc.c
 +++ b/net/ipv4/proc.c
-@@ -109,6 +109,7 @@ static const struct snmp_mib snmp4_ipstats_list[] = {
- 	SNMP_MIB_ITEM("FragOKs", IPSTATS_MIB_FRAGOKS),
- 	SNMP_MIB_ITEM("FragFails", IPSTATS_MIB_FRAGFAILS),
- 	SNMP_MIB_ITEM("FragCreates", IPSTATS_MIB_FRAGCREATES),
+@@ -298,6 +298,7 @@ static const struct snmp_mib snmp4_net_list[] = {
+ 	SNMP_MIB_ITEM("TCPACKSkippedFinWait2", LINUX_MIB_TCPACKSKIPPEDFINWAIT2),
+ 	SNMP_MIB_ITEM("TCPACKSkippedTimeWait", LINUX_MIB_TCPACKSKIPPEDTIMEWAIT),
+ 	SNMP_MIB_ITEM("TCPACKSkippedChallenge", LINUX_MIB_TCPACKSKIPPEDCHALLENGE),
 +	SNMP_MIB_ITEM("TCPWqueueTooBig", LINUX_MIB_TCPWQUEUETOOBIG),
  	SNMP_MIB_SENTINEL
  };
  
 diff --git a/net/ipv4/tcp_output.c b/net/ipv4/tcp_output.c
-index c01d6a88c..25ea6ab 100644
+index 969d185..fbbf51d 100644
 --- a/net/ipv4/tcp_output.c
 +++ b/net/ipv4/tcp_output.c
 @@ -1159,6 +1159,11 @@ int tcp_fragment(struct sock *sk, struct sk_buff *skb, u32 len,
