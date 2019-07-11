@@ -1,6 +1,11 @@
 Change log
 -----------
 
+# v2.38.2+rev3
+## (2019-07-10)
+
+* Fixup for net/ipv4/proc.c [Vicentiu Galanopulo]
+
 # v2.38.2+rev2
 ## (2019-07-08)
 

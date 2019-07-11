@@ -1,4 +1,17 @@
 - commits:
+    - subject: Fixup for net/ipv4/proc.c
+      hash: ec3a41ed516798ade744966c9543e8ea0b096a71
+      body: |
+        Line was erroneously applied when patches were ported
+      footer:
+        Changelog-entry: Fixup for net/ipv4/proc.c
+        changelog-entry: Fixup for net/ipv4/proc.c
+        Signed-off-by: Vicentiu Galanopulo <vicentiu@balena.io>
+        signed-off-by: Vicentiu Galanopulo <vicentiu@balena.io>
+      author: Vicentiu Galanopulo
+  version: 2.38.2+rev3
+  date: 2019-07-10T17:34:27.450Z
+- commits:
     - subject: Patches for TCP-based remote denial of service vulnerabilities
       hash: a267d1eda62f22b7a5a04a4b04aecbbcbf1da08f
       body: >
