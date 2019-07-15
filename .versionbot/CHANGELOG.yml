@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update the balena-yocto-scripts submodule to v1.3.2
+      hash: 50241ecbf12570187d81f29f5648d0ce1a3fe8d4
+      body: ''
+      footer:
+        Changelog-entry: Update the balena-yocto-scripts submodule to v1.3.2
+        changelog-entry: Update the balena-yocto-scripts submodule to v1.3.2
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+  version: 2.38.3+rev2
+  date: 2019-07-15T08:56:37.918Z
+- commits:
     - subject: Update the balena-yocto-scripts submodule to v1.3.0
       hash: c49584faca90f4135e2762452181cdc29e8c3a91
       body: ''
