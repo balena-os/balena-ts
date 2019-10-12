@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update balena-yocto-scripts to v1.4.0
+      hash: af71e8daca3014608be664a0d51f9b41d2170315
+      body: ''
+      footer:
+        Changelog-entry: Update balena-yocto-scripts to v1.4.0
+        changelog-entry: Update balena-yocto-scripts to v1.4.0
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+  version: 2.38.3+rev6
+  date: 2019-10-10T16:24:42.475Z
+- commits:
     - subject: Update balena-yocto-scripts to v1.3.8
       hash: 30431eddcdcf5784716423c9a2d42856cd1e19a8
       body: ''
