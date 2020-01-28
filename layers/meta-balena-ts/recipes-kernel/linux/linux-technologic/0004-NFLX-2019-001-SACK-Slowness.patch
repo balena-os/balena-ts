@@ -26,6 +26,7 @@ Cc: Jonathan Lemon <jonathan.lemon@gmail.com>
 
 Upstream-Status: Inappropriate [not author]
 Signed-off-by: Vicentiu Galanopulo <vicentiu@balena.io>
+Signed-off-by: Florin Sarbu <florin@balena.io>
 ---
  include/uapi/linux/snmp.h | 1 +
  net/ipv4/proc.c           | 1 +
@@ -33,34 +34,34 @@ Signed-off-by: Vicentiu Galanopulo <vicentiu@balena.io>
  3 files changed, 7 insertions(+)
 
 diff --git a/include/uapi/linux/snmp.h b/include/uapi/linux/snmp.h
-index 6a6fb74..abdcafb 100644
+index e7a31f8..f10b364 100644
 --- a/include/uapi/linux/snmp.h
 +++ b/include/uapi/linux/snmp.h
-@@ -276,6 +276,7 @@ enum
- 	LINUX_MIB_TCPACKSKIPPEDFINWAIT2,	/* TCPACKSkippedFinWait2 */
- 	LINUX_MIB_TCPACKSKIPPEDTIMEWAIT,	/* TCPACKSkippedTimeWait */
- 	LINUX_MIB_TCPACKSKIPPEDCHALLENGE,	/* TCPACKSkippedChallenge */
+@@ -281,6 +281,7 @@ enum
+ 	LINUX_MIB_TCPKEEPALIVE,			/* TCPKeepAlive */
+ 	LINUX_MIB_TCPMTUPFAIL,			/* TCPMTUPFail */
+ 	LINUX_MIB_TCPMTUPSUCCESS,		/* TCPMTUPSuccess */
 +	LINUX_MIB_TCPWQUEUETOOBIG,		/* TCPWqueueTooBig */
  	__LINUX_MIB_MAX
  };
  
 diff --git a/net/ipv4/proc.c b/net/ipv4/proc.c
-index e1f3b91..53b4a53 100644
+index 7143ca1..6d1df82 100644
 --- a/net/ipv4/proc.c
 +++ b/net/ipv4/proc.c
-@@ -298,6 +298,7 @@ static const struct snmp_mib snmp4_net_list[] = {
- 	SNMP_MIB_ITEM("TCPACKSkippedFinWait2", LINUX_MIB_TCPACKSKIPPEDFINWAIT2),
- 	SNMP_MIB_ITEM("TCPACKSkippedTimeWait", LINUX_MIB_TCPACKSKIPPEDTIMEWAIT),
- 	SNMP_MIB_ITEM("TCPACKSkippedChallenge", LINUX_MIB_TCPACKSKIPPEDCHALLENGE),
+@@ -305,6 +305,7 @@ static const struct snmp_mib snmp4_net_list[] = {
+ 	SNMP_MIB_ITEM("TCPKeepAlive", LINUX_MIB_TCPKEEPALIVE),
+ 	SNMP_MIB_ITEM("TCPMTUPFail", LINUX_MIB_TCPMTUPFAIL),
+ 	SNMP_MIB_ITEM("TCPMTUPSuccess", LINUX_MIB_TCPMTUPSUCCESS),
 +	SNMP_MIB_ITEM("TCPWqueueTooBig", LINUX_MIB_TCPWQUEUETOOBIG),
  	SNMP_MIB_SENTINEL
  };
  
 diff --git a/net/ipv4/tcp_output.c b/net/ipv4/tcp_output.c
-index 969d185..fbbf51d 100644
+index e00d102..94007f6 100644
 --- a/net/ipv4/tcp_output.c
 +++ b/net/ipv4/tcp_output.c
-@@ -1159,6 +1159,11 @@ int tcp_fragment(struct sock *sk, struct sk_buff *skb, u32 len,
+@@ -1170,6 +1170,11 @@ int tcp_fragment(struct sock *sk, struct sk_buff *skb, u32 len,
  	if (nsize < 0)
  		nsize = 0;
  

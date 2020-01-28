@@ -18,15 +18,16 @@ Cc: Bruce Curtis <brucec@netflix.com>
 
 Upstream-Status: Inappropriate [not author]
 Signed-off-by: Vicentiu Galanopulo <vicentiu@balena.io>
+Signed-off-by: Florin Sarbu <florin@balena.io>
 ---
  net/ipv4/tcp_timer.c | 1 +
  1 file changed, 1 insertion(+)
 
 diff --git a/net/ipv4/tcp_timer.c b/net/ipv4/tcp_timer.c
-index c8f9785..5187a7b 100644
+index 3ea1cf8..7bb0f2b 100644
 --- a/net/ipv4/tcp_timer.c
 +++ b/net/ipv4/tcp_timer.c
-@@ -117,6 +117,7 @@ static void tcp_mtu_probing(struct inet_connection_sock *icsk, struct sock *sk)
+@@ -125,6 +125,7 @@ static void tcp_mtu_probing(struct inet_connection_sock *icsk, struct sock *sk)
  			mss = tcp_mtu_to_mss(sk, icsk->icsk_mtup.search_low) >> 1;
  			mss = min(net->ipv4.sysctl_tcp_base_mss, mss);
  			mss = max(mss, 68 - tp->tcp_header_len);
