@@ -1,4 +1,28 @@
 - commits:
+    - subject: Use kernel version 4.9.11 for ts4900
+      hash: 3639c9af7b983bd037c0700fb920f65c5a660803
+      body: |
+        We updated the BSP so let's use the kernel from there
+      footer:
+        Changelog-entry: Use kernel version 4.9.11 for ts4900
+        changelog-entry: Use kernel version 4.9.11 for ts4900
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+    - subject: Add back the systemd hardware watchdog support for the ts4900 board
+      hash: cf1f385961d8208e068c354221cd5de2620e29cd
+      body: |
+        We add back the hardware watchdog because we consider this a critical
+        feature that we want enabled in the OS.
+      footer:
+        Changelog-entry: Add back the systemd hardware watchdog support for the ts4900 board
+        changelog-entry: Add back the systemd hardware watchdog support for the ts4900 board
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+  version: 2.46.1+rev2
+  date: 2020-01-28T09:10:36.174Z
+- commits:
     - subject: Update bsp to latest sumo branch so that we now have kernel 4.9.11
       hash: 0319efcc12fec1086f982b45dbb15e6dd3008369
       body: ''

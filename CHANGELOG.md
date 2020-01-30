@@ -1,6 +1,12 @@
 Change log
 -----------
 
+# v2.46.1+rev2
+## (2020-01-28)
+
+* Use kernel version 4.9.11 for ts4900 [Florin Sarbu]
+* Add back the systemd hardware watchdog support for the ts4900 board [Florin Sarbu]
+
 # v2.46.1+rev1
 ## (2020-01-16)
 
