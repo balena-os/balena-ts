@@ -25,15 +25,16 @@ Signed-off-by: Konrad Rzeszutek Wilk <konrad.wilk@oracle.com>
 
 Upstream-Status: Inappropriate [not author]
 Signed-off-by: Vicentiu Galanopulo <vicentiu@balena.io>
+Signed-off-by: Florin Sarbu <florin@balena.io>
 ---
  net/ipv4/tcp_input.c | 9 ++++++---
  1 file changed, 6 insertions(+), 3 deletions(-)
 
 diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-index 8a1ad88..bb209a9 100644
+index da99531..9f3f932 100644
 --- a/net/ipv4/tcp_input.c
 +++ b/net/ipv4/tcp_input.c
-@@ -1400,6 +1400,7 @@ static struct sk_buff *tcp_shift_skb_data(struct sock *sk, struct sk_buff *skb,
+@@ -1404,6 +1404,7 @@ static struct sk_buff *tcp_shift_skb_data(struct sock *sk, struct sk_buff *skb,
  	struct tcp_sock *tp = tcp_sk(sk);
  	struct sk_buff *prev;
  	int mss;
@@ -41,7 +42,7 @@ index 8a1ad88..bb209a9 100644
  	int pcount = 0;
  	int len;
  	int in_sack;
-@@ -1513,9 +1514,11 @@ static struct sk_buff *tcp_shift_skb_data(struct sock *sk, struct sk_buff *skb,
+@@ -1520,9 +1521,11 @@ static struct sk_buff *tcp_shift_skb_data(struct sock *sk, struct sk_buff *skb,
  		goto out;
  
  	len = skb->len;

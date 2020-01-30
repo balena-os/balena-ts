@@ -32,6 +32,7 @@ Cc: Jonathan Lemon <jonathan.lemon@gmail.com>
 
 Upstream-Status: Inappropriate [not author]
 Signed-off-by: Vicentiu Galanopulo <vicentiu@balena.io>
+Signed-off-by: Florin Sarbu <florin@balena.io>
 ---
  include/linux/tcp.h   |  3 +++
  include/net/tcp.h     |  2 ++
@@ -41,11 +42,11 @@ Signed-off-by: Vicentiu Galanopulo <vicentiu@balena.io>
  5 files changed, 28 insertions(+), 8 deletions(-)
 
 diff --git a/include/linux/tcp.h b/include/linux/tcp.h
-index e8bbf40..0e7a08e 100644
+index 647532b..45f5857 100644
 --- a/include/linux/tcp.h
 +++ b/include/linux/tcp.h
-@@ -395,4 +395,7 @@ static inline int fastopen_init_queue(struct sock *sk, int backlog)
- 	return 0;
+@@ -432,4 +432,7 @@ static inline void tcp_saved_syn_free(struct tcp_sock *tp)
+ 	tp->saved_syn = NULL;
  }
  
 +int tcp_skb_shift(struct sk_buff *to, struct sk_buff *from, int pcount,
@@ -53,10 +54,10 @@ index e8bbf40..0e7a08e 100644
 +
  #endif	/* _LINUX_TCP_H */
 diff --git a/include/net/tcp.h b/include/net/tcp.h
-index 6d204f3..a0b407a 100644
+index 123979f..4c05112 100644
 --- a/include/net/tcp.h
 +++ b/include/net/tcp.h
-@@ -54,6 +54,8 @@ void tcp_time_wait(struct sock *sk, int state, int timeo);
+@@ -53,6 +53,8 @@ void tcp_time_wait(struct sock *sk, int state, int timeo);
  
  #define MAX_TCP_HEADER	(128 + MAX_HEADER)
  #define MAX_TCP_OPTION_SPACE 40
@@ -66,22 +67,22 @@ index 6d204f3..a0b407a 100644
  /*
   * Never offer a window over 32767 without using window scaling. Some
 diff --git a/net/ipv4/tcp.c b/net/ipv4/tcp.c
-index 19d385a..edba67e 100644
+index 6a90a0e..03b16ab 100644
 --- a/net/ipv4/tcp.c
 +++ b/net/ipv4/tcp.c
-@@ -3045,6 +3045,7 @@ void __init tcp_init(void)
- 	int max_rshare, max_wshare, cnt;
+@@ -3285,6 +3285,7 @@ void __init tcp_init(void)
+ 	unsigned long limit;
  	unsigned int i;
  
 +	BUILD_BUG_ON(TCP_MIN_SND_MSS <= MAX_TCP_OPTION_SPACE);
- 	sock_skb_cb_check_size(sizeof(struct tcp_skb_cb));
+ 	BUILD_BUG_ON(sizeof(struct tcp_skb_cb) >
+ 		     FIELD_SIZEOF(struct sk_buff, cb));
  
- 	percpu_counter_init(&tcp_sockets_allocated, 0, GFP_KERNEL);
 diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-index 36b93ad..8a1ad88 100644
+index c71d49c..da99531 100644
 --- a/net/ipv4/tcp_input.c
 +++ b/net/ipv4/tcp_input.c
-@@ -1308,7 +1308,7 @@ static bool tcp_shifted_skb(struct sock *sk, struct sk_buff *skb,
+@@ -1311,7 +1311,7 @@ static bool tcp_shifted_skb(struct sock *sk, struct sk_buff *skb,
  	TCP_SKB_CB(skb)->seq += shifted;
  
  	tcp_skb_pcount_add(prev, pcount);
@@ -90,7 +91,7 @@ index 36b93ad..8a1ad88 100644
  	tcp_skb_pcount_add(skb, -pcount);
  
  	/* When we're adding to gso_segs == 1, gso_size will be zero,
-@@ -1374,6 +1374,21 @@ static int skb_can_shift(const struct sk_buff *skb)
+@@ -1378,6 +1378,21 @@ static int skb_can_shift(const struct sk_buff *skb)
  	return !skb_headlen(skb) && skb_is_nonlinear(skb);
  }
  
@@ -112,7 +113,7 @@ index 36b93ad..8a1ad88 100644
  /* Try collapsing SACK blocks spanning across multiple skbs to a single
   * skb.
   */
-@@ -1479,7 +1494,7 @@ static struct sk_buff *tcp_shift_skb_data(struct sock *sk, struct sk_buff *skb,
+@@ -1486,7 +1501,7 @@ static struct sk_buff *tcp_shift_skb_data(struct sock *sk, struct sk_buff *skb,
  	if (!after(TCP_SKB_CB(skb)->seq + len, tp->snd_una))
  		goto fallback;
  
@@ -121,7 +122,7 @@ index 36b93ad..8a1ad88 100644
  		goto fallback;
  	if (!tcp_shifted_skb(sk, skb, state, pcount, len, mss, dup_sack))
  		goto out;
-@@ -1498,10 +1513,9 @@ static struct sk_buff *tcp_shift_skb_data(struct sock *sk, struct sk_buff *skb,
+@@ -1505,10 +1520,9 @@ static struct sk_buff *tcp_shift_skb_data(struct sock *sk, struct sk_buff *skb,
  		goto out;
  
  	len = skb->len;
@@ -136,10 +137,10 @@ index 36b93ad..8a1ad88 100644
  out:
  	state->fack_count += pcount;
 diff --git a/net/ipv4/tcp_output.c b/net/ipv4/tcp_output.c
-index ae66c84..c01d6a88c 100644
+index 65d6189..e00d102 100644
 --- a/net/ipv4/tcp_output.c
 +++ b/net/ipv4/tcp_output.c
-@@ -1320,8 +1320,8 @@ static inline int __tcp_mtu_to_mss(struct sock *sk, int pmtu)
+@@ -1335,8 +1335,8 @@ static inline int __tcp_mtu_to_mss(struct sock *sk, int pmtu)
  	mss_now -= icsk->icsk_ext_hdr_len;
  
  	/* Then reserve room for full set of TCP options and 8 bytes of data */
