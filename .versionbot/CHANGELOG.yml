@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update balena-yocto-scripts to v1.5.4
+      hash: e3549e192190e5ce4340b49ddf15da9443671737
+      body: ''
+      footer:
+        Changelog-entry: Update balena-yocto-scripts to v1.5.4
+        changelog-entry: Update balena-yocto-scripts to v1.5.4
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+  version: 2.47.0+rev3
+  date: 2020-02-09T14:06:46.245Z
+- commits:
     - subject: Update meta-rust to include 1.36
       hash: 3a36e36232a3cd49dc3dd0912a5111a3499923ae
       body: ''
