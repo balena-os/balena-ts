@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update meta-rust to include 1.36
+      hash: 85c3be0c97d94b89c39e224cfe434f56d045c318
+      body: ''
+      footer:
+        Changelog-entry: Update meta-rust to include 1.36
+        changelog-entry: Update meta-rust to include 1.36
+        Signed-off-by: Zubair Lutfullah Kakakhel <zubair@balena.io>
+        signed-off-by: Zubair Lutfullah Kakakhel <zubair@balena.io>
+      author: Zubair Lutfullah Kakakhel
+  version: 2.47.0+rev4
+  date: 2020-02-10T17:02:07.334Z
+- commits:
     - subject: Update balena-yocto-scripts to v1.5.4
       hash: e3549e192190e5ce4340b49ddf15da9443671737
       body: ''
