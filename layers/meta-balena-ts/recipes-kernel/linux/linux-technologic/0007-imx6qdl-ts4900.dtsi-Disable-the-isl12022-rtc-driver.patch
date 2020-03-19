@@ -1,0 +1,33 @@
+From 913f41106db6d2e1a661a0beaa3fe0085fa64331 Mon Sep 17 00:00:00 2001
+From: Florin Sarbu <florin@balena.io>
+Date: Thu, 19 Mar 2020 14:59:24 +0100
+Subject: [PATCH] imx6qdl-ts4900.dtsi: Disable the isl12022 rtc driver
+
+On the customer ts4900 daughter board there are problems with this rtc
+device on the i2c bus. In lack of schematics to check if changes have
+been made to the rtc in relation to the i2c bus, we will disable this
+driver so that timedatectl and friends won't error out when trying to
+read the rtc:
+rtc-isl12022 0-006f: isl12022_read_regs: read error, ret=-6
+
+Upstream-Status: Inappropriate [configuration specific]
+Signed-off-by: Florin Sarbu <florin@balena.io>
+---
+ arch/arm/boot/dts/imx6qdl-ts4900.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm/boot/dts/imx6qdl-ts4900.dtsi b/arch/arm/boot/dts/imx6qdl-ts4900.dtsi
+index ed1caa4..5ec4440 100644
+--- a/arch/arm/boot/dts/imx6qdl-ts4900.dtsi
++++ b/arch/arm/boot/dts/imx6qdl-ts4900.dtsi
+@@ -159,6 +159,7 @@
+ 	isl12022: rtc@6f {
+ 		compatible = "isil,isl12022";
+ 		reg = <0x6f>;
++		status="disabled";
+ 	};
+ 
+ 	gpio8: gpio@28 {
+-- 
+2.7.4
+
