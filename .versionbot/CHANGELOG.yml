@@ -1,4 +1,73 @@
 - commits:
+    - subject: Update balena-yocto-scripts to v1.5.6
+      hash: d2e01624fc179613a180eba0eb1fc7989df01ca9
+      body: ''
+      footer:
+        Changelog-entry: Update balena-yocto-scripts to v1.5.6
+        changelog-entry: Update balena-yocto-scripts to v1.5.6
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+    - subject: >-
+        Disable the isl12022 rtc driver for ts4900 because of unknown customer
+        hw modifications
+      hash: f12449b636b34e72feb7c9f6013d9633447ac369
+      body: |
+        On the customer ts4900 daughter board there are problems with this rtc
+        device on the i2c bus. In lack of schematics to check if changes have
+        been made to the rtc in relation to the i2c bus, we will disable this
+        driver so that timedatectl and friends won't error out when trying to
+        read the rtc:
+        rtc-isl12022 0-006f: isl12022_read_regs: read error, ret=-6
+      footer:
+        Changelog-entry: >-
+          Disable the isl12022 rtc driver for ts4900 because of unknown customer
+          hw modifications
+        changelog-entry: >-
+          Disable the isl12022 rtc driver for ts4900 because of unknown customer
+          hw modifications
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+    - subject: Update meta-balena from v2.47.0 to v2.47.1
+      hash: ec52b1011a02e1e10e7931ea88176988da73558a
+      body: |
+        Update meta-balena from 2.47.0 to 2.47.1
+      footer:
+        Changelog-entry: Update meta-balena from v2.47.0 to v2.47.1
+        changelog-entry: Update meta-balena from v2.47.0 to v2.47.1
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+      nested:
+        - commits:
+            - subject: >-
+                Affects 2.45+ on all devices. Fix dangling sshd services on
+                failed connections that would grow and cause cpu load to keep
+                rising. See issue 1837 in meta-balena for more detail.
+              hash: 0759f60bda559377bfb10361167222d4e0de6d01
+              body: |
+                This reverts commit 6d5de094c3f0d9f2f06a1c58abc5eb9dc256cf79.
+                Fixes #1837
+              footer:
+                Change-type: patch
+                change-type: patch
+                Changelog-entry: >-
+                  Affects 2.45+ on all devices. Fix dangling sshd services on
+                  failed connections that would grow and cause cpu load to keep
+                  rising. See issue 1837 in meta-balena for more detail.
+                changelog-entry: >-
+                  Affects 2.45+ on all devices. Fix dangling sshd services on
+                  failed connections that would grow and cause cpu load to keep
+                  rising. See issue 1837 in meta-balena for more detail.
+                Signed-off-by: Zubair Lutfullah Kakakhel <zubair@balena.io>
+                signed-off-by: Zubair Lutfullah Kakakhel <zubair@balena.io>
+              author: Zubair Lutfullah Kakakhel
+          version: meta-balena-2.47.1
+          date: 2020-02-13T11:54:53.438Z
+  version: 2.47.1+rev1
+  date: 2020-03-19T19:40:15.470Z
+- commits:
     - subject: Update meta-rust to include 1.36
       hash: 85c3be0c97d94b89c39e224cfe434f56d045c318
       body: ''

@@ -1,6 +1,21 @@
 Change log
 -----------
 
+# v2.47.1+rev1
+## (2020-03-19)
+
+* Update balena-yocto-scripts to v1.5.6 [Florin Sarbu]
+* Disable the isl12022 rtc driver for ts4900 because of unknown customer hw modifications [Florin Sarbu]
+
+<details>
+<summary> Update meta-balena from v2.47.0 to v2.47.1 [Florin Sarbu] </summary>
+
+> ## meta-balena-2.47.1
+> ### (2020-02-13)
+> 
+> * Affects 2.45+ on all devices. Fix dangling sshd services on failed connections that would grow and cause cpu load to keep rising. See issue 1837 in meta-balena for more detail. [Zubair Lutfullah Kakakhel]
+</details>
+
 # v2.47.0+rev4
 ## (2020-02-10)
 
