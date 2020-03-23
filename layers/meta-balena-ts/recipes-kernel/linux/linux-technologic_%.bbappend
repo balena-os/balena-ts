@@ -15,3 +15,11 @@ SRC_URI_append_ts4900 = " \
     file://0006-NFLX-2019-001-Resour-Consump-Low-MSS.patch \
     file://0007-imx6qdl-ts4900.dtsi-Disable-the-isl12022-rtc-driver.patch \
     "
+
+#                                                                                                                                                                                                                                            
+# MTD block support                                                                                                                                                                                                                               
+#                                                                                                                                                                                                                                            
+RESIN_CONFIGS_append = " mtdblock"
+RESIN_CONFIGS[mtdblock] = " \
+    CONFIG_MTD_BLOCK=m \
+"
