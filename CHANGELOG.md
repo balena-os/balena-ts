@@ -1,6 +1,11 @@
 Change log
 -----------
 
+# v2.47.1+rev2
+## (2020-03-20)
+
+* Enable MTD block support [Florin Sarbu]
+
 # v2.47.1+rev1
 ## (2020-03-19)
 

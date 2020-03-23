@@ -1,4 +1,18 @@
 - commits:
+    - subject: Enable MTD block support
+      hash: 6489b02e7d9c7da007fd372689b791f7d5010b62
+      body: |
+        We need mtd block support in order to have the mtd block available for
+        us to flash the bootloader onto.
+      footer:
+        Changelog-entry: Enable MTD block support
+        changelog-entry: Enable MTD block support
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+  version: 2.47.1+rev2
+  date: 2020-03-20T15:13:16.319Z
+- commits:
     - subject: Update balena-yocto-scripts to v1.5.6
       hash: d2e01624fc179613a180eba0eb1fc7989df01ca9
       body: ''
