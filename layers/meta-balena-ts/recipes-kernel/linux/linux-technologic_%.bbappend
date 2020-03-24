@@ -22,4 +22,5 @@ SRC_URI_append_ts4900 = " \
 RESIN_CONFIGS_append = " mtdblock"
 RESIN_CONFIGS[mtdblock] = " \
     CONFIG_MTD_BLOCK=m \
+    CONFIG_SPI_SPIDEV=m \
 "
