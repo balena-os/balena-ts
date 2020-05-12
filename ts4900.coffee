@@ -19,6 +19,7 @@ module.exports =
 	name: 'Technologic TS-4900'
 	arch: 'armv7hf'
 	state: 'released'
+	private: false
 
 	stateInstructions:
 		postProvisioning: postProvisioningInstructions
