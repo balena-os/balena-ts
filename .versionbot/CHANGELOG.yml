@@ -1,4 +1,16 @@
 - commits:
+    - subject: Set private to false in .coffee files for the public device types
+      hash: ea13aec4a7a0346ddab353312b67795bfa528f7a
+      body: ''
+      footer:
+        Changelog-entry: Set private to false in .coffee files for the public device types
+        changelog-entry: Set private to false in .coffee files for the public device types
+        Signed-off-by: Florin Sarbu <florin@balena.io>
+        signed-off-by: Florin Sarbu <florin@balena.io>
+      author: Florin Sarbu
+  version: 2.48.0+rev2
+  date: 2020-05-12T09:29:16.404Z
+- commits:
     - subject: Update meta-balena from v2.47.1 to v2.48.0
       hash: 373e824c55bd30fb337dcc8c1e6d3ad2c8619b65
       body: |
