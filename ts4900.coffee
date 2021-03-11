@@ -49,10 +49,10 @@ module.exports =
 
 	yocto:
 		machine: 'ts4900'
-		image: 'resin-image-flasher'
-		fstype: 'resinos-img'
+		image: 'balena-image-flasher'
+		fstype: 'balenaos-img'
 		version: 'yocto-sumo'
-		deployArtifact: 'resin-image-flasher-ts4900.resinos-img'
+		deployArtifact: 'balena-image-flasher-ts4900.balenaos-img'
 		compressed: true
 
 	options: [

@@ -2,15 +2,15 @@
 # ts4900
 #
 
-IMAGE_FSTYPES_append_ts4900 = " resinos-img"
+IMAGE_FSTYPES_append_ts4900 = " balenaos-img"
 
 # We burn the FPGA bitstream in uboot so we need it in boot partition
 RDEPENDS_${PN}_append_ts4900 = " ts4900-fpga"
 
-RESIN_IMAGE_BOOTLOADER_ts4900 = "u-boot-ts"
+BALENA_IMAGE_BOOTLOADER_ts4900 = "u-boot-ts"
 
-# Customize resinos-img
-RESIN_BOOT_PARTITION_FILES_ts4900 = " \
+# Customize balenaos-img
+BALENA_BOOT_PARTITION_FILES_ts4900 = " \
     ${KERNEL_IMAGETYPE}${KERNEL_INITRAMFS}-${MACHINE}.bin:/boot/${KERNEL_IMAGETYPE} \
     u-boot-ts4900.imx-single: \
     u-boot-ts4900.imx-quad: \
