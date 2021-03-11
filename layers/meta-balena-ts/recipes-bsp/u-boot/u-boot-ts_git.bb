@@ -1,8 +1,8 @@
 DESCRIPTION = "U-Boot port for ts4900"
 SECTION = "Bootloader"
 
-RESIN_EXTERNAL_MMC = "0"
-RESIN_INTERNAL_MMC = "1"
+BALENA_EXTERNAL_MMC = "0"
+BALENA_INTERNAL_MMC = "1"
 UBOOT_KCONFIG_SUPPORT = "1"
 inherit resin-u-boot
 

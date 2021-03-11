@@ -19,7 +19,7 @@ SRC_URI_append_ts4900 = " \
 #                                                                                                                                                                                                                                            
 # MTD block support                                                                                                                                                                                                                               
 #                                                                                                                                                                                                                                            
-RESIN_CONFIGS_append = " mtdblock"
-RESIN_CONFIGS[mtdblock] = " \
+BALENA_CONFIGS_append = " mtdblock"
+BALENA_CONFIGS[mtdblock] = " \
     CONFIG_MTD_BLOCK=m \
 "
