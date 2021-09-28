@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update balena-yocto-scripts from v1.11.0 to v1.14.9
+      hash: 5f1271490b1d0dc1c1c8ddcacca325884e1e0211
+      body: |
+        Update balena-yocto-scripts from 1.11.0 to 1.14.9
+      footer:
+        Changelog-entry: Update balena-yocto-scripts from v1.11.0 to v1.14.9
+        changelog-entry: Update balena-yocto-scripts from v1.11.0 to v1.14.9
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+  version: 2.72.0+rev2
+  date: 2021-09-28T09:57:27.617Z
+- commits:
     - subject: Rename resin image types to balena
       hash: bebba5f62f0358118ff9e0ecd7c17ffe93ff34f3
       body: |
