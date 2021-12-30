@@ -18,7 +18,7 @@ module.exports =
 	aliases: [ 'ts4900' ]
 	name: 'Technologic TS-4900'
 	arch: 'armv7hf'
-	state: 'released'
+	state: 'DISCONTINUED'
 	private: false
 
 	stateInstructions:
