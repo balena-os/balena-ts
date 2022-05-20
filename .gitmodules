@@ -25,3 +25,6 @@
 [submodule "layers/meta-freescale-3rdparty"]
 	path = layers/meta-freescale-3rdparty
 	url = https://github.com/Freescale/meta-freescale-3rdparty.git
+[submodule "contracts"]
+	path = contracts
+	url = https://github.com/balena-io/contracts.git
