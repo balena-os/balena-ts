@@ -1,6 +1,144 @@
 Change log
 -----------
 
+# v2.86.0+rev9
+## (2022-07-25)
+
+
+<details>
+<summary> Update balena-yocto-scripts to 09e4514953fed499a69c224b47969fd2c3fb7ab8 [renovate[bot]] </summary>
+
+> ## balena-yocto-scripts-1.19.11
+> ### (2022-07-25)
+> 
+> * balena-api: On hostapp creation, set class to app [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.10
+> ### (2022-06-29)
+> 
+> * balena-deploy: Use balena-img instead of resin-img [Alex Gonzalez]
+> * Global rename from dockerhub resin to balena accounts [Alex Gonzalez]
+> * automation: Stop deploying images to dockerhub [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.9
+> ### (2022-06-28)
+> 
+> * balena-deploy: pin balena-img to v4.1.2 [Joseph Kogut]
+> * balena-deploy: s/resin-img/balena-img [Joseph Kogut]
+> 
+> ## balena-yocto-scripts-1.19.8
+> ### (2022-06-01)
+> 
+> * balena-lib: release_finalize: Do not retag phase for ESR branch patch [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.7
+> ### (2022-06-01)
+> 
+> * balena-lib: balena_lib_release_finalize: Pass the correct arguments [Alex Gonzalez]
+> * balena-lib: Tag ESR fleets with patch independent tags [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.6
+> ### (2022-05-24)
+> 
+> * balena-lib: Check versions before finalizing [Alex Gonzalez]
+> * balena-deploy-block: Do not always finalise on deploy [Alex Gonzalez]
+> * balena-deploy-block: Add OS version to contract [Alex Gonzalez]
+> * balena-deploy: Generate OS contract if not available [Alex Gonzalez]
+> * balena-lib: Build contracts [Alex Gonzalez]
+> * Add generate-oscontract script [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.5
+> ### (2022-05-19)
+> 
+> * jenkins_build: Finalize when required [Alex Gonzalez]
+> * balena-lib: Finalise release before tagging [Alex Gonzalez]
+> * balena-api: Add function to get final state of release [Alex Gonzalez]
+> * balena-lib: Extract release finalization as function [Alex Gonzalez]
+> * Update balena-cli version to latest [Alex Gonzalez]
+> * balena-deploy: Fix header on balena_deploy_block() [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.19.4
+> ### (2022-04-28)
+> 
+> * balena-api.inc: fix 'fatal: unsafe repository' [Florin Sarbu]
+> 
+> ## balena-yocto-scripts-1.19.3
+> ### (2022-04-26)
+> 
+> * balena-lib: fix 445d6d1fcfce97f85ffcfedc0083eb658a734321 [Florin Sarbu]
+> 
+> ## balena-yocto-scripts-1.19.2
+> ### (2022-04-21)
+> 
+> * balena-lib: fix 'fatal: unsafe repository' [Joseph Kogut]
+> 
+> ## balena-yocto-scripts-1.19.1
+> ### (2022-04-14)
+> 
+> * deploy: ensure deployRawArtifact is empty instead of null [Joseph Kogut]
+> 
+> ## balena-yocto-scripts-1.19.0
+> ### (2022-04-13)
+> 
+> * deploy: push image variant artifacts [Joseph Kogut]
+> 
+> ## balena-yocto-scripts-1.18.0
+> ### (2022-04-01)
+> 
+> * Bump balena-cli to v.Latest [ab77]
+> 
+> ## balena-yocto-scripts-1.17.12
+> ### (2022-03-29)
+> 
+> * Remove superfluous preload flag [ab77]
+> 
+> ## balena-yocto-scripts-1.17.11
+> ### (2022-03-29)
+> 
+> * Unattended preload operation [ab77]
+> 
+> ## balena-yocto-scripts-1.17.10
+> ### (2022-03-28)
+> 
+> * Pass environment to docker [ab77]
+> 
+> ## balena-yocto-scripts-1.17.9
+> ### (2022-03-25)
+> 
+> * automation: ami: make BALENA_PRELOAD_COMMIT optional [Joseph Kogut]
+> 
+> ## balena-yocto-scripts-1.17.8
+> ### (2022-03-15)
+> 
+> * balena-deploy: s/resin-flasher/balena-flasher [Joseph Kogut]
+> 
+> ## balena-yocto-scripts-1.17.7
+> ### (2022-03-15)
+> 
+> * jenkins_generate_ami: surface preload app commit as variable [Joseph Kogut]
+> 
+> ## balena-yocto-scripts-1.17.6
+> ### (2022-03-08)
+> 
+> * barys: Remove RESINHUP setting [Alex Gonzalez]
+> 
+> ## balena-yocto-scripts-1.17.5
+> ### (2022-03-08)
+> 
+> * balena-deploy: Avoid patching test suites config.js during deploy [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.17.4
+> ### (2022-03-03)
+> 
+> * Init and update submodules when switching meta-balena branches [Kyle Harding]
+> 
+> ## balena-yocto-scripts-1.17.3
+> ### (2022-03-02)
+> 
+> * jenkins_build: Use recurse-submodules when checking out meta-balena [Kyle Harding]
+> 
+</details>
+
 # v2.86.0+rev8
 ## (2022-07-12)
 
